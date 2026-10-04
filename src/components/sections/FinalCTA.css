@@ -1,0 +1,26 @@
+.final-cta {
+  padding: 6rem 2rem;
+  background: var(--color-obsidian);
+  color: var(--color-base);
+  text-align: center;
+}
+
+.final-cta__inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.final-cta__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.final-cta__desc {
+  font-size: 1.1rem;
+  opacity: 0.6;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}

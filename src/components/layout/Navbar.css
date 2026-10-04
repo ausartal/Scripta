@@ -1,0 +1,141 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 0 2rem;
+  background: rgba(248, 241, 231, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(10, 14, 23, 0.06);
+}
+
+.navbar--home {
+  background: rgba(10, 14, 23, 0.6);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(248, 241, 231, 0.08);
+}
+
+.navbar__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.navbar__logo img {
+  height: 28px;
+  width: auto;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-obsidian);
+  opacity: 0.65;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.navbar--home .navbar__link {
+  color: var(--color-base);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  opacity: 1;
+}
+
+.navbar__cta {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.85rem;
+}
+
+.navbar--home .navbar__cta {
+  background: var(--color-yellow);
+  color: var(--color-obsidian);
+}
+
+.navbar--home .navbar__cta:hover {
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+}
+
+.navbar__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.navbar__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-obsidian);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar--home .navbar__toggle-bar {
+  background: var(--color-base);
+}
+
+.navbar__toggle-bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar__toggle-bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle-bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    background: var(--color-base);
+    padding: 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .navbar--home .navbar__links {
+    background: var(--color-obsidian);
+  }
+
+  .navbar__links--open {
+    transform: translateX(0);
+  }
+
+  .navbar__link {
+    font-size: 1.1rem;
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,105 @@
+.about-page {
+  padding-top: 64px;
+  padding-bottom: 4rem;
+}
+
+.about-page__hero {
+  padding: 5rem 2rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-page__story {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.about-page__block {
+  margin-bottom: 2.5rem;
+}
+
+.about-page__block h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--color-red);
+}
+
+.about-page__block p {
+  font-size: 1rem;
+  color: var(--color-gray-600);
+  line-height: 1.8;
+}
+
+.about-page__beliefs {
+  padding: 4rem 2rem;
+  background: var(--color-obsidian);
+  color: var(--color-base);
+  text-align: center;
+}
+
+.about-page__beliefs h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.about-page__beliefs-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.about-page__beliefs-grid blockquote {
+  font-size: 1.1rem;
+  font-style: italic;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.about-page__values {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.about-page__values h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.about-page__values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.about-page__value {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: white;
+  border: 1px solid var(--color-gray-200);
+}
+
+.about-page__value h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.about-page__value p {
+  font-size: 0.85rem;
+  color: var(--color-gray-600);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-page__beliefs-grid,
+  .about-page__values-grid {
+    grid-template-columns: 1fr;
+  }
+}

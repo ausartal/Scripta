@@ -1,0 +1,34 @@
+.numbers {
+  padding: 4rem 2rem;
+  background: var(--color-base);
+}
+
+.numbers__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.numbers__value {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-red);
+  letter-spacing: -0.03em;
+}
+
+.numbers__label {
+  font-size: 0.85rem;
+  color: var(--color-gray-600);
+  margin-top: 0.25rem;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .numbers__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

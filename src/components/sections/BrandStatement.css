@@ -1,0 +1,42 @@
+.brand-statement {
+  padding: 5rem 2rem;
+  background: var(--color-base);
+}
+
+.brand-statement__inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-statement__pillars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand-statement__pillar {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-statement__pillar:nth-child(1) { color: var(--color-red); }
+.brand-statement__pillar:nth-child(3) { color: var(--color-obsidian); }
+.brand-statement__pillar:nth-child(5) { color: #8B2FC9; }
+
+.brand-statement__x {
+  font-size: 1.2rem;
+  color: var(--color-gray-400);
+}
+
+.brand-statement__text {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--color-gray-600);
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}

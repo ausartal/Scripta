@@ -1,0 +1,51 @@
+.how-page {
+  padding-top: 64px;
+  padding-bottom: 4rem;
+}
+
+.how-page__hero {
+  padding: 5rem 2rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.how-page__steps {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.how-page__step {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.how-page__step:last-child {
+  border-bottom: none;
+}
+
+.how-page__num {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-red);
+  opacity: 0.3;
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.how-page__step h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.how-page__step p {
+  font-size: 0.95rem;
+  color: var(--color-gray-600);
+  line-height: 1.7;
+}
