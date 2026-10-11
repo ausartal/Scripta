@@ -31,7 +31,10 @@ export default function Portfolio() {
   }
   function paginate(next) {
     change(filter, next);
-    results.current?.scrollIntoView({ behavior: "instant", block: "start" });
+    results.current?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      block: "start",
+    });
     results.current?.focus({ preventScroll: true });
   }
   return (
@@ -55,7 +58,7 @@ export default function Portfolio() {
                 aria-pressed={filter === f}
                 onClick={() => change(f, 1)}
               >
-                {f}
+                {f} <span>{f === "All" ? projects.length : projects.filter((project) => project.category === f).length}</span>
               </button>
             ))}
           </div>
@@ -66,8 +69,9 @@ export default function Portfolio() {
         </div>
         <div
           ref={results}
+          key={`${filter}-${page}`}
           tabIndex={-1}
-          className="project-grid"
+          className="project-grid project-grid--updating"
           aria-label="Portfolio results"
         >
           {filtered.slice((page - 1) * 2, page * 2).map((p) => (
@@ -112,6 +116,8 @@ export function ProjectDetail() {
         <Button to="/portfolio">Back to Portfolio</Button>
       </section>
     );
+  const currentIndex = projects.findIndex((item) => item.slug === slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
   return (
     <>
       <PageIntro
@@ -121,9 +127,9 @@ export function ProjectDetail() {
         image={p.image || "imgAppCharacterBust"}
       />
       <section className="wrap page-content project-detail">
-        <Link to="/portfolio" className="back-link">
-          Back to all concepts
-        </Link>
+        <nav className="project-breadcrumb" aria-label="Breadcrumb">
+          <Link to="/portfolio">Portfolio</Link><span aria-hidden="true">/</span><span>{p.title}</span>
+        </nav>
         <ProjectVisual project={p} />
         <div className="detail-copy">
           <div>
@@ -146,6 +152,10 @@ export function ProjectDetail() {
         <Button to={`/contact?reference=${encodeURIComponent(p.title)}`}>
           Discuss a Similar Idea
         </Button>
+        <Link className="next-project" to={`/portfolio/${nextProject.slug}`}>
+          <span>Next concept</span>
+          <strong>{nextProject.title} / {nextProject.subtitle}</strong>
+        </Link>
       </section>
       <FinalCTA />
     </>

@@ -1,5 +1,12 @@
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  useNavigationType,
+  Link,
+} from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 import { Button } from "./components/Studio";
@@ -25,17 +32,44 @@ const titles = {
 };
 function RouteEffects() {
   const { pathname, hash } = useLocation();
+  const navigationType = useNavigationType();
   useEffect(() => {
     document.title = `${titles[pathname] || (pathname.startsWith("/portfolio/") ? "Concept detail" : "Page not found")} — Scripta`;
     const target = hash
       ? document.getElementById(decodeURIComponent(hash.slice(1)))
       : null;
     if (target) target.scrollIntoView({ behavior: "instant" });
+    else if (pathname === "/portfolio" && navigationType === "POP") {
+      const saved = Number(sessionStorage.getItem("scripta:portfolio-scroll"));
+      requestAnimationFrame(() => window.scrollTo({ top: saved || 0, behavior: "instant" }));
+      document.getElementById("main")?.focus({ preventScroll: true });
+    }
     else {
       window.scrollTo({ top: 0, behavior: "instant" });
       document.getElementById("main")?.focus({ preventScroll: true });
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, navigationType]);
+
+  useEffect(() => {
+    const nodes = document.querySelectorAll("[data-reveal]");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return undefined;
+    }
+    document.documentElement.classList.add("motion-ready");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -8%" },
+    );
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [pathname]);
   return null;
 }
 function Privacy() {
@@ -45,13 +79,20 @@ function Privacy() {
       <p>
         The current Scripta website prepares project briefs locally in your
         browser. The form does not send your name, email, or project details to
-        Scripta, and does not save those details in browser storage.
+        Scripta. While you are drafting, the form saves a local copy in this
+        browser so an accidental refresh does not erase your progress.
       </p>
       <h2>Downloads and clipboard</h2>
       <p>
         If you choose Download brief, the file is saved to your device. If you
         choose Copy brief, the text is placed on your clipboard. You decide
         where to share it.
+      </p>
+      <h2>Local draft</h2>
+      <p>
+        Your project draft stays on this device until you clear it from the
+        form or clear this browser&apos;s site data. It is never uploaded by this
+        website.
       </p>
       <h2>Site delivery</h2>
       <p>
@@ -78,12 +119,30 @@ function NotFound() {
     </section>
   );
 }
-export default function App() {
+function MobileProjectAction() {
+  const { pathname } = useLocation();
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const update = () => setVisible(window.scrollY > 640);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+  if (pathname === "/contact" || !visible) return null;
   return (
-    <BrowserRouter>
+    <div className="mobile-project-action">
+      <span>Have an idea?</span>
+      <Link to="/contact">Start a project</Link>
+    </div>
+  );
+}
+function AppShell() {
+  const { pathname } = useLocation();
+  return (
+    <>
       <RouteEffects />
       <Navbar />
-      <main id="main" tabIndex={-1}>
+      <main id="main" tabIndex={-1} className="route-frame" key={pathname}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
@@ -98,7 +157,15 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      <MobileProjectAction />
       <Footer />
+    </>
+  );
+}
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   );
 }

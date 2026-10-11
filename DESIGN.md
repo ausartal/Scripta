@@ -106,6 +106,12 @@ At 1000px the composition moves to two-column working grids. At 760px navigation
 
 Depth is structural and sparse: floating hero objects use soft offset shadows, while most sections separate through color fields and spacing. Cards generally use either a border or a shadow. Controls use short color and shadow transitions; reduced-motion preferences remove transition duration.
 
+## Motion & Continuity
+
+The hero is the single authored entrance: copy reveals first, the shared creator illustration follows, and supporting studio artifacts settle last. Routine interactions stay between 100–400ms and explain state changes rather than decorating every section. Route arrivals, portfolio results, package recommendations, and form steps use confident ease-out motion; `prefers-reduced-motion` keeps content and feedback visible without spatial movement.
+
+Desktop, tablet, and mobile use the same `mobile-imgHeroCharacter` artwork so the first brand impression stays consistent across devices. Cropping changes with available space, but the character identity does not.
+
 ## Shapes
 
 Controls use an 8px radius. Ordinary cards use 12–16px corners, feature cards use 18–20px, and pills are reserved for compact tags and filters. Large 64–160px asymmetric curves belong only to page-scale hero and invitation surfaces.
@@ -126,7 +132,7 @@ Service cards use composition to express hierarchy: dark Web and orange App lead
 
 ### Inputs / Fields
 
-Inputs use paper backgrounds, visible neutral borders, 48px minimum height, explicit labels, purple focus, and clear helper text. The contact form prepares a local brief and states that no server submission occurs.
+Inputs use paper backgrounds, visible neutral borders, 48px minimum height, explicit labels, purple focus, and clear helper text. The contact form uses three short steps, saves a recoverable versioned draft in local browser storage, prepares a local brief, and states that no server submission occurs.
 
 ### Navigation
 

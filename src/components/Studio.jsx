@@ -44,7 +44,7 @@ export function Button({ to, children, secondary = false, className = "" }) {
 }
 export function SectionHeading({ label, title, description, link, to }) {
   return (
-    <div className="section-heading">
+    <div className="section-heading" data-reveal="heading">
       <div>
         {label && <p className="eyebrow">{label}</p>}
         <h2>{title}</h2>
@@ -83,7 +83,7 @@ export function PageIntro({
 }
 export function FinalCTA() {
   return (
-    <section className="invitation">
+    <section className="invitation" data-reveal="invitation">
       <div className="wrap invitation__inner">
         <div>
           <p className="eyebrow">Your next chapter starts here</p>
@@ -127,6 +127,7 @@ export function ServiceGrid({ detailed = false }) {
           id={s.id}
           key={s.id}
           className={`service-card tone-${s.tone} service-card--${s.id}`}
+          data-reveal="card"
         >
           <div className="service-card__top">
             <Icon name={s.icon} />
@@ -214,6 +215,7 @@ export function Process({ full = false }) {
                 i === 1 ? "process-step process-step--featured" : "process-step"
               }
               key={step.title}
+              data-reveal="card"
             >
               <div className="process-step__top">
                 <span>0{i + 1}</span>
@@ -326,11 +328,14 @@ export function ProjectVisual({ project }) {
 }
 export function ProjectCard({ project }) {
   return (
-    <article className="project-card">
+    <article className="project-card" data-reveal="project">
       <Link
         to={`/portfolio/${project.slug}`}
         className="project-image-link"
         aria-label={`View ${project.title} concept`}
+        onClick={() =>
+          sessionStorage.setItem("scripta:portfolio-scroll", String(window.scrollY))
+        }
       >
         <ProjectVisual project={project} />
       </Link>

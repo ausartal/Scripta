@@ -32,20 +32,23 @@ agent-browser.cmd --session $sessionName open "$BaseUrl/portfolio" | Out-Null
 agent-browser.cmd --session $sessionName find role button click --name Next --exact | Out-Null
 $state = Invoke-BrowserJs "({page:new URLSearchParams(location.search).get('page'),title:document.querySelector('.project-card > h3').textContent})"
 Assert-True ($state.page -eq '2' -and $state.title -like '*Little Steps*') 'Portfolio next page failed'
-agent-browser.cmd --session $sessionName find role button click --name Website --exact | Out-Null
+agent-browser.cmd --session $sessionName click '.tabs button:nth-child(2)' | Out-Null
 $state = Invoke-BrowserJs "({page:new URLSearchParams(location.search).get('page'),count:document.querySelectorAll('.project-card').length,title:document.querySelector('.project-card > h3').textContent})"
 Assert-True (-not $state.page -and $state.count -eq 1 -and $state.title -like '*Common Ground*') 'Portfolio filter/reset failed'
 agent-browser.cmd --session $sessionName open "$BaseUrl/portfolio?page=999" | Out-Null
 $state = Invoke-BrowserJs "document.querySelector('.pagination [aria-current=page]').textContent"
 Assert-True ($state -eq '2') 'Invalid page not clamped'
 agent-browser.cmd --session $sessionName open "$BaseUrl/pricing" | Out-Null
+Invoke-BrowserJs "localStorage.removeItem('scripta:project-draft:v1'); true" | Out-Null
 agent-browser.cmd --session $sessionName click '.pricing-card--featured .button' | Out-Null
-$selected = Invoke-BrowserJs "document.getElementById('package').value"
-Assert-True ($selected -eq 'Build') 'Pricing package not passed into contact'
+$selected = Invoke-BrowserJs "new URLSearchParams(location.search).get('package')"
+Assert-True ($selected -eq 'Build') 'Pricing package not passed into contact URL'
 agent-browser.cmd --session $sessionName fill '#name' 'Scripta QA' | Out-Null
 agent-browser.cmd --session $sessionName fill '#email' 'qa@example.com' | Out-Null
+agent-browser.cmd --session $sessionName find role button click --name 'Continue' --exact | Out-Null
 agent-browser.cmd --session $sessionName select '#service' 'Web Development' | Out-Null
 agent-browser.cmd --session $sessionName fill '#description' 'A responsive website for a community learning project.' | Out-Null
+agent-browser.cmd --session $sessionName find role button click --name 'Continue' --exact | Out-Null
 agent-browser.cmd --session $sessionName find role button click --name 'Prepare My Brief' | Out-Null
 $brief = Invoke-BrowserJs "document.querySelector('.brief-result pre')?.textContent"
 Assert-True ($brief -like '*Package: Build*' -and $brief -like '*has not been sent*') 'Prepared brief is missing context or honest status'

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Arrow } from "../Studio";
 
@@ -11,11 +11,18 @@ const links = [
 ];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const toggle = useRef(null);
   const close = () => setOpen(false);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 24);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
   return (
     <header
-      className="site-header"
+      className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}
       onKeyDown={(e) => {
         if (e.key === "Escape") {
           close();

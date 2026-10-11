@@ -36,22 +36,12 @@ function Hero() {
           </h1>
         </div>
         <div className="hero-art">
-          <picture>
-            <source
-              media="(max-width: 600px)"
-              srcSet={art("mobile-imgHeroCharacter")}
-            />
-            <source
-              media="(max-width: 1000px)"
-              srcSet={art("tablet-imgHeroIllustratorFigure")}
-            />
-            <img
-              className="hero-character"
-              src={art("imgIllustratorCharacterPose")}
-              alt="Original illustration of a creative explorer in purple and orange, ready to make ideas real"
-              fetchPriority="high"
-            />
-          </picture>
+          <img
+            className="hero-character"
+            src={art("mobile-imgHeroCharacter")}
+            alt="Original illustration of a creative explorer holding a drawing tablet and sketchbook"
+            fetchPriority="high"
+          />
           <img
             className="hero-dots"
             src="/illustrations/imgDotGridTop.svg"
@@ -96,6 +86,15 @@ function Hero() {
               Explore Our Work
             </Link>
           </div>
+          <nav className="hero-paths" aria-label="Choose a project starting point">
+            <span>What are you making?</span>
+            <div>
+              <Link to="/contact?service=Web%20Development">Website</Link>
+              <Link to="/contact?service=App%20Development">App</Link>
+              <Link to="/contact?service=Illustration%20%26%20Design">Design</Link>
+              <Link to="/contact">Not sure yet</Link>
+            </div>
+          </nav>
           <small>Your idea. Our shared next chapter.</small>
         </div>
       </section>

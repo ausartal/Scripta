@@ -1,7 +1,14 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { PageIntro, Button, FinalCTA } from "../components/Studio";
 import { packages } from "../data/packages";
 export default function Pricing() {
+  const [recommended, setRecommended] = useState("Build");
+  const startingPoints = [
+    ["A focused deliverable", "Spark"],
+    ["A complete digital project", "Build"],
+    ["A broader partnership", "Studio"],
+  ];
   return (
     <>
       <div className="pricing-intro">
@@ -13,12 +20,37 @@ export default function Pricing() {
         />
       </div>
       <section className="wrap section-space">
+        <div className="package-finder" aria-labelledby="package-finder-title">
+          <div>
+            <h2 id="package-finder-title">What best describes your idea?</h2>
+            <p>Choose the closest starting point. You can adjust everything later.</p>
+          </div>
+          <div className="package-finder__choices">
+            {startingPoints.map(([label, packageName]) => (
+              <button
+                type="button"
+                key={packageName}
+                aria-pressed={recommended === packageName}
+                onClick={() => setRecommended(packageName)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="package-finder__result" role="status">
+            Suggested starting point: <strong>{recommended}</strong>
+          </p>
+        </div>
         <div className="pricing-grid">
           {packages.map((p) => (
             <article
-              className={`pricing-card ${p.featured ? "pricing-card--featured" : ""}`}
+              className={`pricing-card ${p.featured ? "pricing-card--featured" : ""} ${recommended === p.name ? "pricing-card--recommended" : ""}`}
               key={p.name}
+              data-reveal="card"
             >
+              {recommended === p.name && (
+                <span className="sr-only">Recommended for your selected need. </span>
+              )}
               {p.featured && (
                 <span className="package-sticker">For a complete project</span>
               )}
