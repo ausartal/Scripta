@@ -42,3 +42,8 @@ package-lock copy.json
 # Test / coverage
 coverage
 *.tsbuildinfo
+
+# Local design review artifacts
+.impeccable/review/
+docs/before.png
+docs/figma-assets.json

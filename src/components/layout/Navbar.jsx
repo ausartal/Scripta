@@ -1,51 +1,81 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Navbar.css';
+import { useRef, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { Arrow } from "../Studio";
 
-const NAV_LINKS = [
-  { label: 'Services', to: '/services' },
-  { label: 'Portfolio', to: '/portfolio' },
-  { label: 'How It Works', to: '/how-it-works' },
-  { label: 'About', to: '/about' },
-  { label: 'FAQ', to: '/faq' },
+const links = [
+  ["Services", "/services"],
+  ["Portfolio", "/portfolio"],
+  ["About Us", "/about"],
+  ["Pricing", "/pricing"],
+  ["FAQ", "/faq"],
 ];
-
-function Navbar() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-
+  const toggle = useRef(null);
+  const close = () => setOpen(false);
   return (
-    <nav className={`navbar ${isHome ? 'navbar--home' : ''}`}>
-      <div className="navbar__inner">
-        <Link to="/" className="navbar__logo">
-          <img src="/logo.svg" alt="Scripta" />
+    <header
+      className="site-header"
+      onKeyDown={(e) => {
+        if (e.key === "Escape") {
+          close();
+          toggle.current?.focus();
+        }
+      }}
+    >
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+      <nav className="nav-inner wrap" aria-label="Main navigation">
+        <Link to="/" className="brand" onClick={close}>
+          <img
+            src="/logo-original.svg"
+            alt="Scripta home"
+            width="122"
+            height="38"
+          />
         </Link>
-
-        <div className={`navbar__links ${open ? 'navbar__links--open' : ''}`}>
-          {NAV_LINKS.map(link => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`navbar__link ${location.pathname === link.to ? 'navbar__link--active' : ''}`}
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </Link>
+        <div
+          id="main-navigation"
+          className={`nav-links ${open ? "is-open" : ""}`}
+        >
+          {links.map(([label, to]) => (
+            <NavLink key={to} to={to} onClick={close}>
+              {label}
+            </NavLink>
           ))}
-          <Link to="/contact" className="btn btn--primary navbar__cta" onClick={() => setOpen(false)}>
-            Start a Project
+          <Link to="/how-it-works" className="mobile-process" onClick={close}>
+            How It Works
           </Link>
         </div>
-
-        <button className="navbar__toggle" onClick={() => setOpen(!open)} aria-label="Menu">
-          <span className={`navbar__toggle-bar ${open ? 'open' : ''}`} />
-          <span className={`navbar__toggle-bar ${open ? 'open' : ''}`} />
-          <span className={`navbar__toggle-bar ${open ? 'open' : ''}`} />
+        <Link to="/contact" className="button nav-cta" onClick={close}>
+          Start a Project
+          <Arrow />
+        </Link>
+        <button
+          ref={toggle}
+          type="button"
+          className="menu-toggle"
+          aria-expanded={open}
+          aria-controls="main-navigation"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          onClick={() => setOpen(!open)}
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            aria-hidden="true"
+          >
+            <path
+              d={open ? "m6 6 12 12M6 18 18 6" : "M4 7h16M4 12h16M4 17h16"}
+            />
+          </svg>
         </button>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 }
-
-export default Navbar;

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 2,
+  "title": "Design System: Scripta",
+  "extensions": {
+    "colorMeta": {
+      "studio-purple": { "role": "primary", "displayName": "Studio Purple", "canonical": "#8338ec", "tonalRamp": ["#281148", "#4f2290", "#6b2dc0", "#8338ec", "#9d60ef", "#bc93f4", "#dcc8fa", "#f5effd"] },
+      "action-orange": { "role": "secondary", "displayName": "Action Orange", "canonical": "#fb5607", "tonalRamp": ["#4a1902", "#8e3004", "#c94306", "#fb5607", "#fc7b3e", "#fda577", "#fed1b5", "#fff2eb"] },
+      "paper": { "role": "neutral", "displayName": "Warm Paper", "canonical": "#f0ede4", "tonalRamp": ["#262521", "#4b4a45", "#77746d", "#a4a198", "#c7c3ba", "#dedbd2", "#f0ede4", "#fbfaf6"] },
+      "deep-ink": { "role": "neutral", "displayName": "Deep Ink", "canonical": "#1a1d21", "tonalRamp": ["#101214", "#1a1d21", "#343a41", "#565e68", "#7d858e", "#abb0b5", "#d7d9dc", "#f2f3f4"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and major uppercase statements." },
+      "headline": { "displayName": "Headline", "purpose": "Section and feature headings." },
+      "body": { "displayName": "Body", "purpose": "Descriptions, forms, and navigation." },
+      "label": { "displayName": "Label", "purpose": "Compact metadata and control labels." }
+    },
+    "shadows": [
+      { "name": "floating-object", "value": "6px 10px 28px rgba(0,0,0,0.27)", "purpose": "Hero mockups and stickers only." },
+      { "name": "control-hover", "value": "0 6px 15px rgba(33,37,41,0.10)", "purpose": "Primary button feedback." }
+    ],
+    "motion": [
+      { "name": "state", "value": "180ms ease", "purpose": "Color and shadow feedback on controls." },
+      { "name": "reduced", "value": "0.01ms", "purpose": "Reduced-motion override." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1600px" },
+      { "name": "desktop", "value": "1200px" },
+      { "name": "tablet", "value": "1000px" },
+      { "name": "compact", "value": "760px" },
+      { "name": "mobile", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action with a directional line icon.",
+      "html": "<a class=\"ds-button\" href=\"#\">Start a Project <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 18 18 6M6 6h12v12\"/></svg></a>",
+      "css": ".ds-button{display:inline-flex;align-items:center;gap:12px;background:#fb5607;color:#212529;padding:14px 25px;border:2px solid transparent;border-radius:8px;font:700 13px Inter,sans-serif;text-decoration:none}.ds-button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7}.ds-button:hover{background:#ff7431;box-shadow:0 6px 15px rgba(33,37,41,.1)}.ds-button:focus-visible{outline:3px solid #8338ec;outline-offset:5px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action that inherits the surface foreground.",
+      "html": "<a class=\"ds-button-outline\" href=\"#\">Explore Our Work</a>",
+      "css": ".ds-button-outline{display:inline-flex;align-items:center;min-height:50px;padding:14px 25px;border:2px solid currentColor;border-radius:8px;color:#212529;font:700 13px Inter,sans-serif;text-decoration:none}.ds-button-outline:hover{background:rgba(33,37,41,.07)}.ds-button-outline:focus-visible{outline:3px solid #8338ec;outline-offset:5px}"
+    },
+    {
+      "name": "Project Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Labeled input for the local project brief.",
+      "html": "<label class=\"ds-field\">Your name<input placeholder=\"What should we call you?\"></label>",
+      "css": ".ds-field{display:flex;flex-direction:column;gap:8px;color:#212529;font:700 13px Inter,sans-serif}.ds-field input{min-height:48px;padding:13px 14px;border:1px solid #a6a299;border-radius:7px;background:#f0ede4;color:#212529;font:400 15px Inter,sans-serif}.ds-field input:focus-visible{outline:3px solid #8338ec;outline-offset:3px}"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "description": "Illustrated service surface whose scale communicates priority.",
+      "html": "<article class=\"ds-service\"><span>↗</span><h3>WEB DEVELOPMENT</h3><p>A home for your idea.</p></article>",
+      "css": ".ds-service{min-height:260px;padding:28px;border-radius:18px;background:#1a1d21;color:#f0ede4;font:400 14px/1.7 Inter,sans-serif}.ds-service span{color:#fb5607}.ds-service h3{margin:40px 0 14px;font:400 28px/1.1 Anton,sans-serif}.ds-service:focus-within{outline:3px solid #ffd5bd;outline-offset:5px}"
+    },
+    {
+      "name": "Category Filter",
+      "kind": "chip",
+      "description": "URL-backed portfolio and FAQ filter.",
+      "html": "<button class=\"ds-filter\" aria-pressed=\"true\">All</button>",
+      "css": ".ds-filter{min-height:44px;padding:10px 20px;border:1px solid #d4d1c8;border-radius:999px;background:transparent;color:#212529;font:400 13px Inter,sans-serif}.ds-filter[aria-pressed=true]{background:#212529;border-color:#212529;color:white}.ds-filter:focus-visible{outline:3px solid #8338ec;outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Illustrated Launchpad",
+    "overview": "Scripta uses original character illustration, editorial display type, and saturated regional color to make an unfinished idea feel active and possible. Calm paper sections preserve clarity between expressive moments.",
+    "keyCharacteristics": ["Original character illustration as primary material", "Anton display with Inter body", "Regional purple and orange surfaces", "Asymmetric compositions with accessible controls", "Honest labels for illustrative content"],
+    "rules": [
+      { "name": "The Surface Rule", "body": "Purple, orange, paper, and ink own whole regions.", "section": "colors" },
+      { "name": "The Contrast Rule", "body": "Use darker display orange for text on paper and action orange for surfaces.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Anton expresses the studio; Inter explains and operates it.", "section": "typography" }
+    ],
+    "dos": ["Use original Figma illustrations", "Preserve the complete color rhythm", "Label illustrative content honestly", "Keep accessible focus and touch targets"],
+    "donts": ["Substitute generic illustration", "Flatten hierarchy into identical cards", "Invent commercial claims", "Remove key mobile illustration beats"]
+  }
+}

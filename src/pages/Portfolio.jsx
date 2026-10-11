@@ -1,55 +1,153 @@
-import { useState } from 'react';
-import './Portfolio.css';
-
-const FILTERS = ['All', 'Website', 'App', 'Game', 'Education', 'Illustration', 'UI/UX'];
-
-const PROJECTS = [
-  { title: 'EduPlay', category: 'Education', desc: 'Interactive learning platform for high school students with gamified quizzes.', color: '#D62828' },
-  { title: 'Brandify', category: 'Website', desc: 'Modern brand identity website for a creative agency.', color: '#5227FF' },
-  { title: 'PixelQuest', category: 'Game', desc: 'Retro-style educational puzzle game for mobile.', color: '#00D4FF' },
-  { title: 'ArtVault', category: 'Illustration', desc: 'Digital art portfolio and commission management system.', color: '#FFD700' },
-  { title: 'StudyHub', category: 'App', desc: 'Cross-platform study planner with spaced repetition.', color: '#8B2FC9' },
-  { title: 'MediCare UI', category: 'UI/UX', desc: 'Healthcare app UI/UX design and prototyping.', color: '#D62828' },
-];
-
-function Portfolio() {
-  const [filter, setFilter] = useState('All');
-  const filtered = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === filter);
-
+import { useRef } from "react";
+import { useSearchParams, useParams, Link } from "react-router-dom";
+import { projects } from "../data/studio";
+import {
+  PageIntro,
+  ProjectCard,
+  ProjectVisual,
+  Button,
+  FinalCTA,
+} from "../components/Studio";
+const filters = ["All", "Website", "Education", "App", "Game"];
+export default function Portfolio() {
+  const [params, setParams] = useSearchParams();
+  const results = useRef(null);
+  const filter = filters.includes(params.get("category"))
+    ? params.get("category")
+    : "All";
+  const filtered = projects.filter(
+    (p) => filter === "All" || p.category === filter,
+  );
+  const total = Math.max(1, Math.ceil(filtered.length / 2));
+  const requested = Number(params.get("page"));
+  const page = Number.isInteger(requested)
+    ? Math.min(total, Math.max(1, requested))
+    : 1;
+  function change(category, nextPage) {
+    setParams({
+      ...(category !== "All" ? { category } : {}),
+      ...(nextPage > 1 ? { page: String(nextPage) } : {}),
+    });
+  }
+  function paginate(next) {
+    change(filter, next);
+    results.current?.scrollIntoView({ behavior: "instant", block: "start" });
+    results.current?.focus({ preventScroll: true });
+  }
   return (
-    <main className="portfolio-page">
-      <section className="portfolio-page__hero">
-        <span className="section-label">Portfolio</span>
-        <h1 className="section-title">Our work speaks for itself.</h1>
-      </section>
-
-      <div className="portfolio-page__filters">
-        {FILTERS.map(f => (
-          <button
-            key={f}
-            className={`portfolio-page__filter ${filter === f ? 'portfolio-page__filter--active' : ''}`}
-            onClick={() => setFilter(f)}
+    <>
+      <PageIntro
+        label="Selected studio concepts"
+        title="A glimpse of what’s possible."
+        description="Original explorations in learning, creativity, and technology. These are studio concepts, not client commissions."
+        image="imgCreatorIllustration"
+      />
+      <section className="wrap page-content">
+        <div className="portfolio-toolbar">
+          <div
+            className="tabs"
+            role="group"
+            aria-label="Filter concepts by category"
           >
-            {f}
-          </button>
-        ))}
-      </div>
-
-      <div className="portfolio-page__grid">
-        {filtered.map((p, i) => (
-          <div key={i} className="portfolio-page__card">
-            <div className="portfolio-page__thumb" style={{ background: p.color }}>
-              <span className="portfolio-page__cat">{p.category}</span>
-            </div>
-            <div className="portfolio-page__info">
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
-            </div>
+            {filters.map((f) => (
+              <button
+                key={f}
+                aria-pressed={filter === f}
+                onClick={() => change(f, 1)}
+              >
+                {f}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
-    </main>
+          <p className="result-count" role="status">
+            {filtered.length} {filtered.length === 1 ? "concept" : "concepts"} ·
+            Page {page} of {total}
+          </p>
+        </div>
+        <div
+          ref={results}
+          tabIndex={-1}
+          className="project-grid"
+          aria-label="Portfolio results"
+        >
+          {filtered.slice((page - 1) * 2, page * 2).map((p) => (
+            <ProjectCard project={p} key={p.slug} />
+          ))}
+        </div>
+        {total > 1 && (
+          <nav className="pagination" aria-label="Portfolio pagination">
+            <button disabled={page === 1} onClick={() => paginate(page - 1)}>
+              Previous
+            </button>
+            {Array.from({ length: total }, (_, i) => (
+              <button
+                key={i}
+                aria-label={`Page ${i + 1}`}
+                aria-current={page === i + 1 ? "page" : undefined}
+                onClick={() => paginate(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              disabled={page === total}
+              onClick={() => paginate(page + 1)}
+            >
+              Next
+            </button>
+          </nav>
+        )}
+      </section>
+      <FinalCTA />
+    </>
   );
 }
-
-export default Portfolio;
+export function ProjectDetail() {
+  const { slug } = useParams();
+  const p = projects.find((item) => item.slug === slug);
+  if (!p)
+    return (
+      <section className="not-found">
+        <h1>Concept not found.</h1>
+        <Button to="/portfolio">Back to Portfolio</Button>
+      </section>
+    );
+  return (
+    <>
+      <PageIntro
+        label={`${p.category} · Original studio concept`}
+        title={p.title}
+        description={p.subtitle}
+        image={p.image || "imgAppCharacterBust"}
+      />
+      <section className="wrap page-content project-detail">
+        <Link to="/portfolio" className="back-link">
+          Back to all concepts
+        </Link>
+        <ProjectVisual project={p} />
+        <div className="detail-copy">
+          <div>
+            <h2>The idea</h2>
+            <p>{p.description}</p>
+            <p className="form-note">
+              This is an illustrative studio concept, not a live product or
+              client commission.
+            </p>
+          </div>
+          <div>
+            <h2>What we explored</h2>
+            <ul>
+              {p.deliverables.map((d) => (
+                <li key={d}>{d}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <Button to={`/contact?reference=${encodeURIComponent(p.title)}`}>
+          Discuss a Similar Idea
+        </Button>
+      </section>
+      <FinalCTA />
+    </>
+  );
+}
