@@ -214,6 +214,7 @@ export function Audiences() {
           />
           <img src={art("imgWhoWeHelpCharacter")} alt="" loading="lazy" />
         </div>
+        <p className="swipe-hint">Swipe to find your starting point</p>
         <div className="audience-grid">
           {audiences.map(([title, lead, text], i) => (
             <Link
@@ -278,81 +279,27 @@ function Values() {
     </section>
   );
 }
-function Stories() {
-  return (
-    <section className="wrap section-space">
-      <SectionHeading
-        label="Illustrative collaborator stories"
-        title="Good work starts with people."
-        description="Sample stories imagining the student, educator, and creator experience. Not real endorsements."
-      />
-      <div className="story-list">
-        <article>
-          <div>
-            <span className="story-role">Student perspective</span>
-            <blockquote>
-              “I didn’t just want something built. I wanted to understand how to
-              build it, too.”
-            </blockquote>
-            <p>Learning by making, with guidance along the way.</p>
-          </div>
-          <img
-            src={art("imgStudentIllustration")}
-            alt="Illustrated student exploring creative ideas"
-            loading="lazy"
-          />
-        </article>
-        <article className="story-educator">
-          <div>
-            <span className="story-role">Educator perspective</span>
-            <blockquote>
-              “The goal was to make a difficult idea feel approachable—and
-              invite students to explore.”
-            </blockquote>
-            <p>Turning teaching expertise into a meaningful experience.</p>
-          </div>
-          <span className="story-circle" aria-hidden="true">
-            ○
-          </span>
-        </article>
-        <article>
-          <div>
-            <span className="story-role">Creator perspective</span>
-            <blockquote>
-              “My idea was still a little messy. A clear conversation helped me
-              see what it could become.”
-            </blockquote>
-            <p>Finding a shared direction without losing an original voice.</p>
-          </div>
-          <img
-            src={art("imgCreatorIllustration")}
-            alt="Illustrated creator developing an original world"
-            loading="lazy"
-          />
-        </article>
-      </div>
-    </section>
-  );
-}
 export default function Home() {
   return (
     <>
       <Hero />
       <Pillars />
+      <FeaturedProjects />
       <section className="wrap section-space">
         <SectionHeading
           label="Services"
           title="Many ways to make it real."
           description="One collaborative studio. Eight ways to learn, create, and launch something meaningful."
         />
-        <ServiceGrid />
+        <ServiceGrid limit={5} />
         <EthicsNote />
+        <div className="section-close service-close">
+          <Button to="/services" secondary>Explore all services</Button>
+        </div>
       </section>
       <Audiences />
       <Process />
-      <FeaturedProjects />
       <Values />
-      <Stories />
       <FinalCTA />
     </>
   );

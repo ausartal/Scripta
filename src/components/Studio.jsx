@@ -104,11 +104,11 @@ export function FinalCTA() {
           </div>
         </div>
         <div className="invitation__art">
-          <img
-            src={art("imgCtaCharacter")}
-            alt="Illustrated creator ready to bring an idea to life"
-            loading="lazy"
-          />
+          <div className="invitation__poster" aria-hidden="true">
+            <small>FROM FIRST SKETCH</small>
+            <strong>MAKE THE<br />IDEA MOVE.</strong>
+            <span>DESIGN / BUILD / LAUNCH</span>
+          </div>
           <div className="seal">
             <small>IDEAS → POSSIBILITIES</small>
             <Arrow />
@@ -119,10 +119,11 @@ export function FinalCTA() {
     </section>
   );
 }
-export function ServiceGrid({ detailed = false }) {
+export function ServiceGrid({ detailed = false, limit }) {
+  const visibleServices = typeof limit === "number" ? services.slice(0, limit) : services;
   return (
-    <div className={`service-grid ${detailed ? "service-grid--detailed" : ""}`}>
-      {services.map((s, i) => (
+    <div className={`service-grid ${detailed ? "service-grid--detailed" : ""} ${limit ? "service-grid--featured" : ""}`}>
+      {visibleServices.map((s, i) => (
         <article
           id={s.id}
           key={s.id}
@@ -208,6 +209,7 @@ export function Process({ full = false }) {
           title="A conversation. Then a creation."
           description="A clear process, a shared direction, and no disappearing acts. We build with you, not just for you."
         />
+        <p className="swipe-hint">Swipe to explore each step</p>
         <ol className="process-grid">
           {steps.map((step, i) => (
             <li
@@ -354,14 +356,14 @@ export function ProjectCard({ project }) {
 }
 export function FeaturedProjects() {
   return (
-    <section className="wrap section-space">
+    <section className="wrap section-space featured-work">
       <SectionHeading
         label="Featured projects · Selected concepts"
         title="A glimpse of what’s possible."
         description="Original concept work exploring how learning, creativity, and technology come together. Not client commissions."
       />
-      <div className="project-grid">
-        {projects.map((p) => (
+      <div className="project-grid project-grid--showcase">
+        {projects.slice(0, 3).map((p) => (
           <ProjectCard key={p.slug} project={p} />
         ))}
       </div>

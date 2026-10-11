@@ -142,7 +142,7 @@ export default function Contact() {
         label="Start a project"
         title="Every good idea starts somewhere."
         description="Tell us what you’re imagining. A few details will help turn that first spark into a useful project brief."
-        image="imgCtaCharacter"
+        image="mobile-imgHeroCharacter"
       />
       <section className="wrap contact-layout">
         <aside className="contact-aside">
