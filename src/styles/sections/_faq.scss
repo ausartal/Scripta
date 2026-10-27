@@ -1,0 +1,69 @@
+.faq {
+  overflow: hidden;
+
+  &__banner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1728px;
+    height: 398.5px;
+    pointer-events: none;
+  }
+
+  &__title-box {
+    position: absolute;
+    left: 8.74px;
+    top: -43.56px;
+    width: 359.289px;
+    height: 411.149px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-family: var(--f-body);
+    font-weight: 800;
+    font-size: 168px;
+    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
+    transform: rotate(-35.48deg) skewX(-24deg) scaleY(0.91);
+  }
+
+  &__rail {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  &__acc {
+    position: absolute;
+    inset: 0;
+  }
+
+  .acc {
+    &__row {
+      &--1 {
+        left: 255px;
+        top: 299px;
+      }
+      &--2 {
+        left: 547px;
+        top: 459px;
+      }
+      &--3 {
+        left: 88px;
+        top: 623px;
+      }
+      &--4 {
+        left: 455px;
+        top: 787px;
+      }
+      &--5 {
+        left: 188px;
+        top: 951px;
+      }
+    }
+  }
+}

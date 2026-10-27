@@ -1,0 +1,152 @@
+.audience {
+  background: var(--c-bg-dark);
+  overflow: hidden;
+
+  &__intro {
+    position: absolute;
+    left: 82px;
+    top: 95px;
+    width: 1564px;
+    height: 186px;
+  }
+  &__label {
+    position: absolute;
+    left: 14px;
+    top: 0;
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--c-purple-label);
+    text-transform: uppercase;
+  }
+  &__heading {
+    position: absolute;
+    left: 704px;
+    top: 38px;
+    width: 860px;
+    text-align: right;
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 1.06;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: #fff;
+    .c-orange {
+      color: var(--c-orange-starting);
+    }
+    .c-lime {
+      color: var(--c-lime);
+    }
+  }
+  &__supporting {
+    position: absolute;
+    left: 14px;
+    top: 47px;
+    width: 340px;
+    p {
+      font-family: var(--f-ui);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--c-gray);
+    }
+  }
+  &__cursor {
+    position: absolute;
+    left: 975px;
+    top: 263px;
+    width: 49px;
+    height: 60px;
+    transform: rotate(180deg) scaleY(-1);
+    pointer-events: none;
+  }
+
+  &__card {
+    position: absolute;
+    width: 750px;
+    height: 350px;
+    background: #fff;
+    overflow: hidden;
+    &--student {
+      left: 91px;
+      top: 387px;
+    }
+    &--educator {
+      left: 887px;
+      top: 387px;
+    }
+    &--org {
+      left: 91px;
+      top: 784px;
+    }
+    &--creator {
+      left: 887px;
+      top: 784px;
+    }
+  }
+  &__card-title {
+    position: absolute;
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 1.06;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    color: #000;
+    white-space: nowrap;
+  }
+  &__arrow {
+    position: absolute;
+    left: 703px;
+    top: 7px;
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 40px;
+    color: #000;
+    white-space: nowrap;
+  }
+  &__divider {
+    position: absolute;
+    top: 83px;
+    height: 1px;
+    background: #000;
+    border-radius: 200px;
+  }
+  &__tag {
+    position: absolute;
+    width: 297px;
+    color: var(--c-heading);
+    line-height: 1.4;
+    &--jp {
+      font-family: var(--f-body);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    &--semibold {
+      font-family: var(--f-ui);
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .c-blue {
+      color: var(--c-accent-blue);
+    }
+    .c-red {
+      color: var(--c-accent-red);
+    }
+    .c-black {
+      color: #000;
+    }
+  }
+  &__body {
+    position: absolute;
+    left: 14px;
+    top: 141px;
+    width: 707px;
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--c-gray-copy);
+  }
+}

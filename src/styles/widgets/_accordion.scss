@@ -1,0 +1,65 @@
+.acc {
+  &__row {
+    position: absolute;
+    width: 1008px;
+    height: 87px;
+  }
+  &__shadow {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+    width: 1008px;
+    height: 87px;
+    background: var(--c-gray-faq-shadow);
+  }
+  &__header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1008px;
+    height: 87px;
+    background: #fff;
+    cursor: pointer;
+  }
+  &__q {
+    position: absolute;
+    left: 35px;
+    top: 23px;
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.06;
+    color: #000;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  &__icon {
+    position: absolute;
+    right: 20px;
+    top: -23px;
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 1;
+    color: #000;
+    pointer-events: none;
+  }
+  &__panel {
+    position: absolute;
+    left: 15px;
+    top: 100px;
+    width: 978px;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    background: #fff;
+    font-family: var(--f-ui);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--c-gray-copy);
+
+    p {
+      padding: 16px 35px 22px;
+    }
+  }
+}

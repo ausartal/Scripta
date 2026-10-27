@@ -1,0 +1,7 @@
+node_modules/
+dist/
+shots/
+vite.log
+.mimocode/
+*.local
+.DS_Store

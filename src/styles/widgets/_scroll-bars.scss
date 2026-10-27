@@ -1,0 +1,27 @@
+/* scroll progress rails */
+.scrollbar {
+  position: absolute;
+  border-radius: 100px;
+
+  &--track {
+    left: 1682px;
+    top: 186px;
+    width: 15px;
+    height: 873px;
+    background: var(--c-bg-dark);
+  }
+  &--fill {
+    left: 1654px;
+    top: 299px;
+    width: 15px;
+    height: 726px;
+    background: var(--c-purple);
+  }
+  &--dot {
+    left: 1654px;
+    top: 269px;
+    width: 15px;
+    height: 15px;
+    background: var(--c-red);
+  }
+}

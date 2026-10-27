@@ -1,0 +1,277 @@
+.services {
+  background: var(--c-bg-light);
+  overflow: hidden;
+
+  &__intro {
+    position: absolute;
+    left: 64px;
+    top: 100px;
+    width: 1312px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-end;
+  }
+  &__title-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-transform: uppercase;
+  }
+  &__label {
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--c-purple);
+  }
+  &__heading {
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 1.06;
+    letter-spacing: 3.5px;
+    color: var(--c-heading);
+  }
+  &__supporting {
+    width: 400px;
+    flex: none;
+    p {
+      width: 580px;
+      font-family: var(--f-body);
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--c-gray-copy);
+    }
+  }
+  &__jp {
+    position: absolute;
+    left: 844px;
+    top: 1041px;
+    width: 957px;
+    font-family: var(--f-body);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 10px;
+    color: var(--c-gray);
+  }
+
+  /* ---- cards ---- */
+  &__card {
+    position: absolute;
+    overflow: hidden;
+    &--web {
+      left: 64px;
+      top: 257px;
+      width: 500px;
+      height: 740px;
+    }
+    &--game {
+      left: 614px;
+      top: 257px;
+      width: 500px;
+      height: 450px;
+    }
+    &--app {
+      left: 1164px;
+      top: 257px;
+      width: 500px;
+      height: 450px;
+      background: var(--c-card-app);
+    }
+    &--educ {
+      left: 614px;
+      top: 752px;
+      width: 1056px;
+      height: 245px;
+    }
+  }
+
+  &__web-mask {
+    position: absolute;
+    inset: 0;
+  }
+  &__web-rect1,
+  &__web-rect2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500px;
+    height: 478px;
+    background: var(--c-card-web);
+  }
+  &__web-cut {
+    position: absolute;
+    left: 0;
+    top: 364px;
+    width: 270px;
+    height: 196px;
+    background: var(--c-bg-light);
+  }
+  &__web-rect3 {
+    position: absolute;
+    left: 270px;
+    top: 0;
+    width: 230px;
+    height: 560px;
+    background: var(--c-card-web);
+  }
+  &__web-rect4 {
+    position: absolute;
+    left: 0;
+    top: 504px;
+    width: 235px;
+    height: 236px;
+    background: var(--c-card-web);
+  }
+  &__web-rect5 {
+    position: absolute;
+    left: 0;
+    top: 593px;
+    width: 500px;
+    height: 150px;
+    background: var(--c-card-web);
+  }
+  &__web-panel {
+    position: absolute;
+    left: 20px;
+    top: 37px;
+    width: 460px;
+    height: 200px;
+    background: var(--c-card-web-inner);
+  }
+  &__web-img {
+    position: absolute;
+    left: 26px;
+    top: -104px;
+    width: 454px;
+    height: 454px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  &__web-note {
+    position: absolute;
+    left: 97px;
+    top: 386px;
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--c-gray);
+  }
+
+  &__game-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--c-purple);
+  }
+  &__game-panel {
+    position: absolute;
+    left: 20px;
+    top: 35px;
+    width: 460px;
+    height: 205px;
+    background: var(--c-purple-educ);
+  }
+  &__game-img {
+    position: absolute;
+    left: 26px;
+    top: -85px;
+    width: 448px;
+    height: 448px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  &__app-panel {
+    position: absolute;
+    left: 20px;
+    top: 37px;
+    width: 460px;
+    height: 202px;
+    background: var(--c-card-app-inner);
+  }
+  &__app-img {
+    position: absolute;
+    left: 109px;
+    top: -17px;
+    width: 316px;
+    height: 316px;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  &__educ-panel {
+    position: absolute;
+    left: 16px;
+    top: 27px;
+    width: 350px;
+    height: 200px;
+    background: var(--c-orange-educ);
+  }
+  &__educ-img {
+    position: absolute;
+    left: 614px;
+    top: 667px;
+    width: 374px;
+    height: 374px;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  &__details {
+    position: absolute;
+    left: 20px;
+    top: 274px;
+    width: 416px;
+    height: 100px;
+    overflow: hidden;
+    &--app {
+      top: 270px;
+      width: 728px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &--educ {
+      left: 394px;
+      top: 27px;
+      width: 599px;
+      height: 200px;
+      color: var(--c-bg-dark);
+    }
+  }
+  &__card-title {
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.08;
+    text-transform: uppercase;
+    color: var(--c-offwhite);
+    margin-bottom: 10px;
+    .services__details--educ & {
+      color: var(--c-bg-dark);
+    }
+  }
+  &__card-desc {
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--c-gray);
+    &--light {
+      color: #d1d1d1;
+    }
+    &--app {
+      width: 451px;
+      color: rgba(238, 238, 238, 0.53);
+    }
+    .services__details--educ & {
+      width: 588px;
+      height: 108px;
+      color: var(--c-bg-dark);
+    }
+  }
+}

@@ -1,0 +1,414 @@
+.pricing {
+  background: var(--c-bg-light);
+  overflow: hidden;
+
+  &__banner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    img {
+      transform: rotate(180deg);
+      flex: none;
+      display: block;
+    }
+    &--1 {
+      left: 0;
+      top: -4px;
+      width: 1737px;
+      height: 398px;
+      img {
+        width: 1737px;
+        height: 398px;
+      }
+    }
+    &--2 {
+      left: 0;
+      top: 0;
+      width: 1728px;
+      height: 398.5px;
+      img {
+        width: 1728px;
+        height: 398.5px;
+      }
+    }
+    &--3 {
+      left: 0;
+      top: 0;
+      width: 1728px;
+      height: 1710px;
+      img {
+        width: 1728px;
+        height: 1710px;
+      }
+    }
+  }
+
+  &__title-wrap {
+    position: absolute;
+    left: 126px;
+    top: 95px;
+    width: 909.529px;
+    height: 200.37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+    font-family: var(--f-body);
+    font-weight: 800;
+    font-size: 168px;
+    line-height: normal;
+    color: var(--c-text-dark);
+    white-space: nowrap;
+    transform: rotate(2.4deg) skewX(-24deg) scaleY(0.91);
+  }
+  &__jp {
+    position: absolute;
+    left: 1141px;
+    top: 1653px;
+    width: 542px;
+    font-family: var(--f-body);
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 10px;
+    color: var(--c-gray);
+  }
+
+  /* ---- shadow stacks ---- */
+  &__shadow {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    div {
+      width: 473px;
+      height: 620px;
+      border: 2px solid #000;
+      flex: none;
+    }
+    &--lime {
+      left: 43.46px;
+      top: 409.83px;
+      width: 508.087px;
+      height: 646.333px;
+      div {
+        background: #6a8303;
+        transform: rotate(-3.32deg);
+      }
+    }
+    &--blue {
+      left: 615.67px;
+      top: 414.44px;
+      width: 495.667px;
+      height: 637.115px;
+      div {
+        background: var(--c-blue-shadow);
+        transform: rotate(-2.13deg);
+      }
+    }
+    &--orange {
+      left: 1181.41px;
+      top: 414.25px;
+      width: 496.173px;
+      height: 637.492px;
+      div {
+        background: var(--c-orange-dark);
+        transform: rotate(2.17deg);
+      }
+    }
+  }
+
+  /* ---- cards ---- */
+  &__card {
+    position: absolute;
+    width: 473px;
+    height: 620px;
+    border: 2px solid #000;
+    &--lime {
+      left: 61px;
+      top: 423px;
+      background: var(--c-lime);
+    }
+    &--blue {
+      left: 627px;
+      top: 423px;
+      background: var(--c-blue-card);
+    }
+    &--orange {
+      left: 1193px;
+      top: 423px;
+      background: var(--c-orange-card);
+    }
+  }
+  &__card-top {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 473px;
+    &--lime {
+      height: 270.5px;
+    }
+    &--blue {
+      top: 5px;
+      height: 261.5px;
+    }
+    &--orange {
+      top: 10px;
+      height: 249px;
+    }
+  }
+  &__orange-strip {
+    position: absolute;
+    left: 6px;
+    top: 45px;
+    width: 23.5px;
+    height: 203px;
+  }
+
+  /* ---- pills (label plates) ---- */
+  &__pill {
+    position: absolute;
+    height: 45px;
+    border: 1px solid #000;
+    &--lime-shadow {
+      left: 187px;
+      top: 210px;
+      width: 257px;
+      background: #91b400;
+    }
+    &--lime {
+      left: 181px;
+      top: 205px;
+      width: 258px;
+      background: var(--c-lime);
+    }
+    &--blue-shadow {
+      left: 181px;
+      top: 209px;
+      width: 280px;
+      background: var(--c-blue-pill);
+    }
+    &--blue {
+      left: 176px;
+      top: 205px;
+      width: 280px;
+      background: var(--c-blue-card);
+    }
+    &--orange-shadow {
+      left: 176px;
+      top: 209px;
+      width: 290px;
+      background: #cc4c00;
+    }
+    &--orange {
+      left: 172px;
+      top: 205px;
+      width: 290px;
+      background: var(--c-orange-card);
+    }
+  }
+
+  /* ---- tier header (per reference design) ---- */
+  &__jp-label {
+    position: absolute;
+    right: 20px;
+    top: 14px;
+    font-family: var(--f-body);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--c-text-dark);
+    white-space: nowrap;
+    transform: rotate(-8deg);
+    transform-origin: right top;
+  }
+  &__tier {
+    position: absolute;
+    left: 26px;
+    top: 92px;
+    font-family: var(--f-serif);
+    font-weight: 600;
+    font-style: italic;
+    font-size: 46px;
+    line-height: 1;
+    letter-spacing: 2px;
+    color: var(--c-text-dark);
+    white-space: nowrap;
+    transform: rotate(-8deg);
+  }
+  &__pill-label {
+    position: absolute;
+    top: 214px;
+    width: 258px;
+    text-align: center;
+    font-family: var(--f-ui);
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    color: var(--c-text-dark);
+    line-height: 27px;
+    &--lime {
+      left: 181px;
+    }
+    &--blue {
+      left: 176px;
+      width: 280px;
+    }
+    &--orange {
+      left: 172px;
+      width: 290px;
+      color: var(--c-text-dark);
+    }
+  }
+
+  /* ---- card body content ---- */
+  &__body-title {
+    position: absolute;
+    left: 40px;
+    top: 432px;
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 1.06;
+    text-transform: uppercase;
+    color: #000;
+  }
+  &__features {
+    position: absolute;
+    left: 42px;
+    top: 492px;
+    width: 395px;
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.95;
+    color: var(--c-text-dark);
+    li {
+      list-style: none;
+      padding-left: 22px;
+      position: relative;
+      &::before {
+        content: '✦';
+        position: absolute;
+        left: 0;
+        opacity: 0.7;
+      }
+    }
+    &--orange {
+      color: var(--c-bg-dark);
+    }
+  }
+
+  /* ---- CTA banner ---- */
+  &__cta {
+    position: absolute;
+    left: 61px;
+    top: 1121px;
+    width: 1605px;
+    height: 494px;
+  }
+  &__cta-base {
+    position: absolute;
+    inset: 0;
+    background: var(--c-cta-teal);
+  }
+  &__cta-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1605px;
+    height: 494px;
+  }
+  &__cta-overlay2 {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1030.5px;
+    height: 494px;
+  }
+  &__cta-corner {
+    position: absolute;
+    left: 6px;
+    top: 10.5px;
+    width: 108.5px;
+    height: 87.5px;
+  }
+  &__cta-text {
+    position: absolute;
+    left: 276px;
+    top: 69px;
+    width: 363px;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 34px;
+    color: var(--c-text-dark);
+    transform: rotate(-6deg);
+    text-align: center;
+  }
+  &__btn-shadow {
+    position: absolute;
+    left: 54px;
+    top: 398px;
+    width: 640px;
+    height: 65px;
+    background: #837f7f;
+  }
+  &__btn-mid {
+    position: absolute;
+    left: 42px;
+    top: 387px;
+    width: 640px;
+    height: 65px;
+    background: #d6d6d6;
+  }
+  &__btn-front {
+    position: absolute;
+    left: 46px;
+    top: 391px;
+    width: 631px;
+    height: 57px;
+    background: #fff;
+  }
+  &__btn-label-bg {
+    position: absolute;
+    left: 521px;
+    top: 398px;
+    width: 150px;
+    height: 45px;
+    background: var(--c-gray-step);
+  }
+  &__btn-label {
+    position: absolute;
+    left: 524px;
+    top: 413px;
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 12px;
+    color: #000;
+    white-space: nowrap;
+    line-height: 15px;
+  }
+
+  &__chara {
+    position: absolute;
+    object-fit: cover;
+    pointer-events: none;
+    &--inframe {
+      left: 1010px;
+      top: 1086px;
+      width: 656px;
+      height: 656px;
+      opacity: 0.73;
+    }
+    &--loose {
+      left: 786.85px;
+      top: 1022px;
+      width: 726.6px;
+      height: 726.6px;
+    }
+  }
+}

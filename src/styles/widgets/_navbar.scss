@@ -1,0 +1,111 @@
+.nav {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1727px;
+  height: 80px;
+  overflow: hidden;
+  z-index: 20;
+
+  &__logo {
+    position: absolute;
+    left: 55px;
+    top: 14px;
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+  }
+  &__wordmark {
+    position: absolute;
+    left: 114px;
+    top: 16px;
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 38px;
+    letter-spacing: 1.9px;
+    color: var(--c-lime-wordmark);
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    opacity: 1;
+  }
+  &__links {
+    position: absolute;
+    left: 879px;
+    top: 32px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    white-space: nowrap;
+  }
+  &__link {
+    font-family: var(--f-ui);
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    transition: opacity 0.25s ease;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  &__underline {
+    position: absolute;
+    left: 879px;
+    top: 48px;
+    width: 40px;
+    height: 2px;
+    background: #fff;
+    border-radius: 200px;
+  }
+  &__cta {
+    position: absolute;
+    left: 1520px;
+    top: 20px;
+    width: 150px;
+    height: 40px;
+    border: 3px solid var(--c-btn-border);
+    border-radius: 64px;
+    font-family: var(--f-ui);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--c-btn-border);
+    transition: background 0.3s ease, color 0.3s ease;
+    &:hover {
+      background: var(--c-btn-border);
+      color: var(--c-lime);
+    }
+  }
+}
+
+.social {
+  &__icon {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    display: block;
+    img {
+      width: 48px;
+      height: 48px;
+    }
+    &:nth-child(1) {
+      left: 1622px;
+      top: 316px;
+    }
+    &--github {
+      left: 1617px;
+      top: 392px;
+    }
+    &--instagram {
+      left: 1617px;
+      top: 468px;
+    }
+    &--twitch {
+      left: 1617px;
+      top: 544px;
+    }
+    &--twitter {
+      left: 1617px;
+      top: 620px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+#stage-wrap {
+  width: 100%;
+  height: calc(var(--stage-h) * var(--stage-scale));
+  overflow: hidden;
+  position: relative;
+}
+
+#stage {
+  width: var(--stage-w);
+  height: var(--stage-h);
+  position: absolute;
+  top: 0;
+  left: var(--stage-left, 0);
+  transform: scale(var(--stage-scale));
+  transform-origin: top left;
+  overflow: hidden;
+}
