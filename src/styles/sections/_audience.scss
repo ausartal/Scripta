@@ -32,6 +32,10 @@
     letter-spacing: 7px;
     text-transform: uppercase;
     color: #fff;
+    margin: 0;
+    span {
+      display: block;
+    }
     .c-orange {
       color: var(--c-orange-starting);
     }

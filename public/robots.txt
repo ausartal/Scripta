@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://scripta.web.id/sitemap.xml

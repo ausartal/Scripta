@@ -103,10 +103,10 @@ export class AudienceSection extends Section {
     this.root.innerHTML = /* html */ `
       <div class="audience__intro">
         <p class="audience__label">03 / WHO we help</p>
-        <div class="audience__heading">
-          <p>DIFFERENT <b class="c-orange">STARTING</b> POINT</p>
-          <p><b class="c-lime">SHARED</b> POSSIBILITY</p>
-        </div>
+        <h2 class="audience__heading">
+          <span>DIFFERENT <b class="c-orange">STARTING</b> POINT</span>
+          <span><b class="c-lime">SHARED</b> POSSIBILITY</span>
+        </h2>
         <div class="audience__supporting">
           <p>You don't need a perfect brief. Just something you care about—and a little curiosity.</p>
         </div>

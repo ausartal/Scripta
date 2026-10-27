@@ -23,7 +23,7 @@ export class FaqSection extends Section {
       <img class="faq__banner" src="${assets.faq.banner3}" alt="" />
 
       <div class="faq__title-box">
-        <p class="faq__title" data-faq="title">FAQ</p>
+        <h2 class="faq__title" data-faq="title">FAQ</h2>
       </div>
 
       <div class="faq__rail" data-widget="scrollbar">

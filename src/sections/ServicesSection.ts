@@ -15,7 +15,7 @@ export class ServicesSection extends Section {
       <div class="services__intro">
         <div class="services__title-group">
           <p class="services__label">02 / Services</p>
-          <p class="services__heading">Many ways to make it real.</p>
+          <h2 class="services__heading">Many ways to make it real.</h2>
         </div>
         <div class="services__supporting">
           <p>One collaborative studio. Five core ways to learn, create, and launch something meaningful.</p>
@@ -34,9 +34,9 @@ export class ServicesSection extends Section {
           <div class="services__web-rect5"></div>
         </div>
         <div class="services__web-panel"></div>
-        <img class="services__web-img" src="${assets.services.webDev}" alt="" />
+        <img class="services__web-img" src="${assets.services.webDev}" alt="Jasa pembuatan website dan web development" />
         <div class="services__details">
-          <p class="services__card-title">Web Development</p>
+          <h3 class="services__card-title">Web Development</h3>
           <p class="services__card-desc">Landing pages, portfolios, organization websites, and web platforms built to work beautifully.</p>
         </div>
         <div class="services__card-extra">
@@ -52,9 +52,9 @@ export class ServicesSection extends Section {
       <div class="services__card services__card--game" data-card>
         <div class="services__game-bg"></div>
         <div class="services__game-panel"></div>
-        <img class="services__game-img" src="${assets.services.gameDev}" alt="" />
+        <img class="services__game-img" src="${assets.services.gameDev}" alt="Jasa game development" />
         <div class="services__details">
-          <p class="services__card-title">Game Development</p>
+          <h3 class="services__card-title">Game Development</h3>
           <p class="services__card-desc services__card-desc--light">Educational, interactive, and entertainment games that make discovery feel like play.</p>
         </div>
         <div class="services__card-extra services__card-extra--game">
@@ -69,11 +69,11 @@ export class ServicesSection extends Section {
 
       <div class="services__card services__card--app" data-card>
         <div class="services__details services__details--app">
-          <p class="services__card-title">App Development</p>
+          <h3 class="services__card-title">App Development</h3>
           <p class="services__card-desc services__card-desc--app">Useful mobile and web apps that turn everyday needs into simple, thoughtful experiences.</p>
         </div>
         <div class="services__app-panel"></div>
-        <img class="services__app-img" src="${assets.services.appDev}" alt="" />
+        <img class="services__app-img" src="${assets.services.appDev}" alt="Jasa pembuatan aplikasi mobile dan web" />
         <div class="services__card-extra services__card-extra--app">
           <div class="services__tags services__tags--dark">
             <span>CUSTOM SOFTWARE</span>
@@ -88,7 +88,7 @@ export class ServicesSection extends Section {
         <div class="services__educ-panel"></div>
         <div class="services__details services__details--educ">
           <div class="services__educ-badge">ACADEMIC &amp; CREATIVE SERVICES</div>
-          <p class="services__card-title services__card-title--educ">EDUCATION &amp; ILLUSTRATION</p>
+          <h3 class="services__card-title services__card-title--educ">EDUCATION &amp; ILLUSTRATION</h3>
           <p class="services__card-desc services__card-desc--educ">1-on-1 tutoring, assignment mentoring, and learning media alongside custom digital art, character design, and visual assets tailored to inspire and deliver results.</p>
           <div class="services__educ-footer">
             <div class="services__tags services__tags--educ">
@@ -103,7 +103,7 @@ export class ServicesSection extends Section {
           </div>
         </div>
       </div>
-      <img class="services__educ-img" src="${assets.services.education}" alt="" />
+      <img class="services__educ-img" src="${assets.services.education}" alt="Les online dan jasa ilustrasi digital" />
     `;
   }
 

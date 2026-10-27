@@ -149,7 +149,7 @@ export class PricingSection extends Section {
 
       <div class="pricing__header">
         <div class="pricing__title-wrap">
-          <p class="pricing__title">PRICING</p>
+          <h2 class="pricing__title">PRICING</h2>
         </div>
       </div>
 
@@ -185,8 +185,8 @@ export class PricingSection extends Section {
           </div>
         </a>
       </div>
-      <img class="pricing__chara pricing__chara--inframe" src="${assets.pricing.character}" alt="" />
-      <img class="pricing__chara pricing__chara--loose" src="${assets.pricing.characterLoose}" alt="" />
+      <img class="pricing__chara pricing__chara--inframe" src="${assets.pricing.character}" alt="Maskot Scripta — karakter anime" />
+      <img class="pricing__chara pricing__chara--loose" src="${assets.pricing.characterLoose}" alt="Maskot Scripta — karakter anime" />
       <p class="pricing__jp-bottom">予算に寄り添う、柔軟なプライシング。</p>
     `;
   }

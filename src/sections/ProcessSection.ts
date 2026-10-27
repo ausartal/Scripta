@@ -18,27 +18,27 @@ export class ProcessSection extends Section {
       <img class="process__shape process__shape--3" src="${assets.process.shape3}" alt="" />
       <img class="process__shape process__shape--4" src="${assets.process.shape4}" alt="" />
       <img class="process__shape process__shape--5" src="${assets.process.shape5}" alt="" />
-      <img class="process__character" src="${assets.process.character}" alt="" />
+      <img class="process__character" src="${assets.process.character}" alt="Maskot Scripta — karakter anime" />
 
       <p class="process__label">04 / How it works</p>
-      <p class="process__heading" data-process="title">A conversation. Then a <b>creation</b>.</p>
+      <h2 class="process__heading" data-process="title">A conversation. Then a <b>creation</b>.</h2>
       <p class="process__copy">A clear process, a shared direction, and no disappearing acts. We build with you, not just for you.</p>
 
       <div class="process__card process__card--1" data-process="step">
         <div class="process__card-bg"></div>
-        <p class="process__step-title">Tell Us Your Idea</p>
+        <h3 class="process__step-title">Tell Us Your Idea</h3>
         <p class="process__step-p1">A rough sketch, a question, a "what if." We listen to what you want to make and why it matters.</p>
         <p class="process__step-p2">Every great project starts with a conversation. Share your thoughts, references, challenges, or even an idea that hasn't fully taken shape. You don't need all the answers yet—we'll help explore possibilities.</p>
       </div>
       <div class="process__tile process__tile--1" data-process="tile">
         <div class="process__tile-bg"></div>
-        <img class="process__tile-icon process__tile-icon--1" src="${assets.process.iconMessage}" alt="" />
+        <img class="process__tile-icon process__tile-icon--1" src="${assets.process.iconMessage}" alt="Ikon diskusi" />
       </div>
       <p class="process__num process__num--1" data-process="num"><span>01</span></p>
 
       <div class="process__card process__card--2" data-process="step">
         <div class="process__card-bg"></div>
-        <p class="process__step-title">We Plan Together</p>
+        <h3 class="process__step-title">We Plan Together</h3>
         <div class="process__step-body">
           <p>We agree on the scope, timeline, and next steps. Clear expectations, with room for your input.</p>
           <p>&nbsp;</p>
@@ -47,19 +47,19 @@ export class ProcessSection extends Section {
       </div>
       <div class="process__tile process__tile--2" data-process="tile">
         <div class="process__tile-bg"></div>
-        <img class="process__tile-icon process__tile-icon--2" src="${assets.process.iconMap}" alt="" />
+        <img class="process__tile-icon process__tile-icon--2" src="${assets.process.iconMap}" alt="Ikon perencanaan" />
       </div>
       <p class="process__num process__num--2" data-process="num"><span>02</span></p>
 
       <div class="process__card process__card--3" data-process="step">
         <div class="process__card-bg"></div>
-        <p class="process__step-title">We Create It</p>
+        <h3 class="process__step-title">We Create It</h3>
         <p class="process__step-p1">We design, build, and refine with you. Regular check-ins keep the work—and the conversation—moving.</p>
         <p class="process__step-p2">This is where the plan becomes something real. We bring your ideas to life, share progress along the way, and refine the details through your feedback from the first draft to final delivery.</p>
       </div>
       <div class="process__tile process__tile--3" data-process="tile">
         <div class="process__tile-bg"></div>
-        <img class="process__tile-icon process__tile-icon--3" src="${assets.process.iconPencil}" alt="" />
+        <img class="process__tile-icon process__tile-icon--3" src="${assets.process.iconPencil}" alt="Ikon pembuatan" />
       </div>
       <p class="process__num process__num--3" data-process="num"><span>03</span></p>
     `;

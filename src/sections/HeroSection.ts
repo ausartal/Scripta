@@ -17,6 +17,7 @@ export class HeroSection extends Section {
     this.root.style.top = '0px';
     this.root.style.height = '2234px';
     this.root.innerHTML = /* html */ `
+      <h1 class="sr-only">Scripta — Jasa Website, Aplikasi, Game, dan Jasa Desain Digital</h1>
       <div class="hero__bg"></div>
 
       <img class="hero__deco hero__deco--l1" src="${assets.hero.decoLeft1}" alt="" />
@@ -58,7 +59,7 @@ export class HeroSection extends Section {
 
       <div class="hero__card hero__card--purple">
         <div class="hero__card-body">
-          <p class="hero__card-title">Education</p>
+          <h3 class="hero__card-title">Education</h3>
           <p class="hero__card-copy">Online tutoring, academic support, and learning materials that make hard things click.</p>
           <div class="hero__card-extra">
             <div class="hero__card-tags">
@@ -72,7 +73,7 @@ export class HeroSection extends Section {
       </div>
       <div class="hero__card hero__card--lime">
         <div class="hero__card-body">
-          <p class="hero__card-title">Creativity</p>
+          <h3 class="hero__card-title">Creativity</h3>
           <p class="hero__card-copy">Digital illustration, character art, and visual identities with real personality.</p>
           <div class="hero__card-extra">
             <div class="hero__card-tags">
@@ -86,7 +87,7 @@ export class HeroSection extends Section {
       </div>
       <div class="hero__card hero__card--pink">
         <div class="hero__card-body">
-          <p class="hero__card-title">Technology</p>
+          <h3 class="hero__card-title">Technology</h3>
           <p class="hero__card-copy">Websites, apps, and games built to work beautifully and move ideas forward.</p>
           <div class="hero__card-extra">
             <div class="hero__card-tags">
@@ -110,7 +111,7 @@ export class HeroSection extends Section {
       <div class="hero__white-bar" data-hero="bar"></div>
 
       <nav class="nav" data-widget="navbar">
-        <img class="nav__logo" src="${assets.hero.logo}" alt="" />
+        <img class="nav__logo" src="${assets.hero.logo}" alt="Logo Scripta" />
         <p class="nav__wordmark">SCRIPTA</p>
         <div class="nav__links">
           <a class="nav__link is-active" data-nav="link" data-target="hero" href="#hero">HOME</a>
@@ -130,16 +131,16 @@ export class HeroSection extends Section {
       <div class="hero__bar hero__bar--lime" data-hero="rail"></div>
       <div class="hero__bar hero__bar--purple"></div>
 
-      <img class="hero__card-img hero__card-img--code" src="${assets.hero.cardCode}" alt="" />
-      <img class="hero__card-img hero__card-img--ruler" src="${assets.hero.cardRuler}" alt="" />
-      <img class="hero__card-img hero__card-img--book" src="${assets.hero.cardBook}" alt="" />
+      <img class="hero__card-img hero__card-img--code" src="${assets.hero.cardCode}" alt="Ilustrasi kode — layanan teknologi" />
+      <img class="hero__card-img hero__card-img--ruler" src="${assets.hero.cardRuler}" alt="Ilustrasi pensil dan penggaris — layanan kreatif" />
+      <img class="hero__card-img hero__card-img--book" src="${assets.hero.cardBook}" alt="Ilustrasi buku — layanan edukasi" />
 
       <div class="social" data-widget="social">
-        <a class="social__icon" data-social="icon" href="#" aria-label="Figma"><img src="${assets.icons.figma}" alt="" /></a>
-        <a class="social__icon social__icon--github" data-social="icon" href="#" aria-label="Github"><img src="${assets.hero.iconGithub}" alt="" /></a>
-        <a class="social__icon social__icon--instagram" data-social="icon" href="#" aria-label="Instagram"><img src="${assets.icons.instagram}" alt="" /></a>
-        <a class="social__icon social__icon--twitch" data-social="icon" href="#" aria-label="Twitch"><img src="${assets.icons.twitch}" alt="" /></a>
-        <a class="social__icon social__icon--twitter" data-social="icon" href="#" aria-label="Twitter"><img src="${assets.icons.twitter}" alt="" /></a>
+        <a class="social__icon" data-social="icon" href="#" aria-label="Figma"><img src="${assets.icons.figma}" alt="Figma" /></a>
+        <a class="social__icon social__icon--github" data-social="icon" href="#" aria-label="Github"><img src="${assets.hero.iconGithub}" alt="GitHub" /></a>
+        <a class="social__icon social__icon--instagram" data-social="icon" href="#" aria-label="Instagram"><img src="${assets.icons.instagram}" alt="Instagram" /></a>
+        <a class="social__icon social__icon--twitch" data-social="icon" href="#" aria-label="Twitch"><img src="${assets.icons.twitch}" alt="Twitch" /></a>
+        <a class="social__icon social__icon--twitter" data-social="icon" href="#" aria-label="Twitter"><img src="${assets.icons.twitter}" alt="Twitter" /></a>
       </div>
     `;
   }
