@@ -3,76 +3,130 @@ import { gsap } from 'gsap';
 
 const EMAIL = 'works.scripta@gmail.com';
 const IG_URL = 'https://instagram.com/hello.scripta';
+const SUBJECT = 'Konsultasi Proyek — Saya mau kerja sama dengan Scripta';
+const BODY = [
+  'Halo Tim Scripta! 👋',
+  '',
+  'Saya ingin konsultasi tentang kebutuhan saya.',
+  '',
+  'Nama          : ',
+  'Layanan       : (Jasa Tugas Sekolah / Website / Aplikasi / Game / Desain & Ilustrasi / Les Online)',
+  'Deadline      : ',
+  'Detail        : ',
+  '',
+  'Terima kasih, ditunggu kabarnya! 🙌',
+].join('%0A');
+
+const GMAIL_URL = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}&su=${encodeURIComponent(SUBJECT)}&body=${BODY}`;
 
 /** Email contact modal — opened by any [data-contact="open"] trigger. */
 export class ContactModal extends Component {
   private lastFocus?: HTMLElement;
+  private isOpen = false;
 
   init(): void {
-    this.query('[data-contact="close"]') &&
-      this.on(this.query('[data-contact="close"]'), 'click', () => this.close());
-    this.on(this.query('[data-contact="backdrop"]'), 'click', (ev) => {
-      if (ev.target === this.query('[data-contact="backdrop"]')) this.close();
-    });
-    this.on(this.root, 'keydown', (ev) => {
-      if ((ev as KeyboardEvent).key === 'Escape') this.close();
-    });
+    this.root.style.display = 'none';
+    this.root.style.position = 'fixed';
+    this.root.style.inset = '0';
+    this.root.style.zIndex = '100';
 
-    // global open triggers
-    document.querySelectorAll<HTMLElement>('[data-contact="open"]').forEach((el) => {
-      this.on(el, 'click', (ev) => {
+    // delegate clicks on the modal root (close, backdrop, links)
+    this.on(this.root, 'click', (ev) => {
+      const el = (ev.target as HTMLElement).closest?.('[data-contact]') as HTMLElement | null;
+      if (!el) return;
+      const action = el.dataset.contact;
+      if (action === 'close') {
         ev.preventDefault();
-        this.open();
-      });
+        this.close();
+      } else if (action === 'backdrop' && ev.target === el) {
+        this.close();
+      }
     });
 
-    // mailto + ig links inside modal
-    const mail = this.query('[data-contact="mail"]');
-    if (mail) mail.setAttribute('href', `mailto:${EMAIL}?subject=${encodeURIComponent('Halo Scripta — Saya mau konsultasi proyek')}`);
-    const ig = this.query('[data-contact="ig"]');
+    this.on(document, 'keydown', (ev) => {
+      if ((ev as KeyboardEvent).key === 'Escape' && this.isOpen) this.close();
+    });
+
+    // wire links
+    const mail = this.query<HTMLElement>('[data-contact="mail"]');
+    if (mail) {
+      mail.setAttribute('href', GMAIL_URL);
+      mail.setAttribute('target', '_blank');
+      mail.setAttribute('rel', 'noopener noreferrer');
+    }
+    const mailFallback = this.query<HTMLElement>('[data-contact="mailto"]');
+    if (mailFallback) {
+      mailFallback.setAttribute(
+        'href',
+        `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${BODY}`,
+      );
+    }
+    const ig = this.query<HTMLElement>('[data-contact="ig"]');
     if (ig) {
       ig.setAttribute('href', IG_URL);
       ig.setAttribute('target', '_blank');
       ig.setAttribute('rel', 'noopener noreferrer');
     }
 
-    this.root.style.display = 'none';
-    this.root.style.position = 'fixed';
-    this.root.style.inset = '0';
-    this.root.style.zIndex = '100';
+    // open triggers (outside modal)
+    document.querySelectorAll<HTMLElement>('[data-contact="open"]').forEach((el) => {
+      this.on(el, 'click', (ev) => {
+        ev.preventDefault();
+        this.open();
+      });
+    });
   }
 
   open(): void {
+    if (this.isOpen) return;
+    this.isOpen = true;
     this.lastFocus = document.activeElement as HTMLElement;
     this.root.style.display = 'block';
     document.body.style.overflow = 'hidden';
-    const backdrop = this.query('[data-contact="backdrop"]');
-    const card = this.query('[data-contact="card"]');
-    this.gsapCtx = gsap.context(() => {
-      gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
-      gsap.fromTo(
-        card,
-        { y: 40, opacity: 0, scale: 0.96 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(1.4)', clearProps: 'transform' },
-      );
-    }, this.root);
-    const focusable = this.query<HTMLElement>('[data-contact="mail"]');
-    focusable?.focus();
+
+    const backdrop = this.query<HTMLElement>('[data-contact="backdrop"]');
+    const card = this.query<HTMLElement>('[data-contact="card"]');
+    gsap.killTweensOf([backdrop, card]);
+    gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+    gsap.fromTo(
+      card,
+      { y: 40, opacity: 0, scale: 0.96 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.4,
+        ease: 'back.out(1.4)',
+        clearProps: 'transform,opacity,scale',
+      },
+    );
+    this.query<HTMLElement>('[data-contact="close"]')?.focus();
   }
 
   close(): void {
-    const backdrop = this.query('[data-contact="backdrop"]');
-    const card = this.query('[data-contact="card"]');
-    const tl = gsap.timeline({
-      onComplete: () => {
-        this.root.style.display = 'none';
-        document.body.style.overflow = '';
-        this.gsapCtx?.revert();
-        this.gsapCtx = undefined;
-        this.lastFocus?.focus?.();
-      },
-    });
-    tl.to(card, { y: 20, opacity: 0, duration: 0.2, ease: 'power2.in' }, 0).to(backdrop, { opacity: 0, duration: 0.25 }, 0);
+    if (!this.isOpen) return;
+    this.isOpen = false;
+
+    const backdrop = this.query<HTMLElement>('[data-contact="backdrop"]');
+    const card = this.query<HTMLElement>('[data-contact="card"]');
+    gsap.killTweensOf([backdrop, card]);
+
+    const done = () => {
+      this.root.style.display = 'none';
+      document.body.style.overflow = '';
+      gsap.set([backdrop, card], { clearProps: 'all' });
+      this.lastFocus?.focus?.();
+    };
+
+    // guard: if page is hidden (e.g. mail app dialog), finish immediately
+    if (document.hidden) {
+      done();
+      return;
+    }
+
+    const tl = gsap.timeline({ onComplete: done });
+    tl.to(card, { y: 16, opacity: 0, duration: 0.18, ease: 'power2.in' }, 0);
+    tl.to(backdrop, { opacity: 0, duration: 0.22 }, 0);
   }
 
   destroy(): void {
