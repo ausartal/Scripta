@@ -1,5 +1,10 @@
 .faq {
-  overflow: hidden;
+  position: relative;
+  min-height: 1117px;
+  height: auto;
+  padding-top: 280px;
+  padding-bottom: 120px;
+  overflow: visible;
 
   &__banner {
     position: absolute;
@@ -8,6 +13,7 @@
     width: 1728px;
     height: 398.5px;
     pointer-events: none;
+    z-index: 1;
   }
 
   &__title-box {
@@ -19,6 +25,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
+    pointer-events: none;
   }
 
   &__title {
@@ -38,31 +46,27 @@
   }
 
   &__acc {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    width: 100%;
+    z-index: 3;
   }
 
   .acc {
     &__row {
       &--1 {
-        left: 255px;
-        top: 299px;
+        margin-left: 255px;
       }
       &--2 {
-        left: 547px;
-        top: 459px;
+        margin-left: 547px;
       }
       &--3 {
-        left: 88px;
-        top: 623px;
+        margin-left: 88px;
       }
       &--4 {
-        left: 455px;
-        top: 787px;
+        margin-left: 455px;
       }
       &--5 {
-        left: 188px;
-        top: 951px;
+        margin-left: 188px;
       }
     }
   }

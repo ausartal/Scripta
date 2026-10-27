@@ -1,65 +1,74 @@
 .acc {
   &__row {
-    position: absolute;
+    position: relative;
     width: 1008px;
-    height: 87px;
+    margin-bottom: 30px;
   }
-  &__shadow {
-    position: absolute;
-    left: 15px;
-    top: 13px;
+
+  &__card {
+    position: relative;
     width: 1008px;
-    height: 87px;
-    background: var(--c-gray-faq-shadow);
+    background: #fff;
+    border: 2px solid #000;
+    box-shadow: 6px 6px 0px var(--c-gray-faq-shadow);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.45);
+      transform: translateY(-2px);
+    }
   }
+
   &__header {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 1008px;
-    height: 87px;
+    position: relative;
+    width: 100%;
+    min-height: 87px;
+    padding: 18px 32px;
     background: #fff;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
   }
+
   &__q {
-    position: absolute;
-    left: 35px;
-    top: 23px;
     font-family: var(--f-heading);
     font-weight: 400;
-    font-size: 40px;
-    line-height: 1.06;
+    font-size: 34px;
+    line-height: 1.15;
     color: #000;
     text-transform: uppercase;
-    white-space: nowrap;
+    margin: 0;
   }
+
   &__icon {
-    position: absolute;
-    right: 20px;
-    top: -23px;
     font-family: var(--f-heading);
     font-weight: 400;
-    font-size: 100px;
+    font-size: 54px;
     line-height: 1;
     color: #000;
     pointer-events: none;
+    margin-left: 20px;
+    flex-shrink: 0;
   }
+
   &__panel {
-    position: absolute;
-    left: 15px;
-    top: 100px;
-    width: 978px;
     height: 0;
     opacity: 0;
     overflow: hidden;
     background: #fff;
+    border-top: 1px solid #e8e8e8;
     font-family: var(--f-ui);
-    font-size: 15px;
+    font-size: 15.5px;
     line-height: 1.7;
     color: var(--c-gray-copy);
 
     p {
-      padding: 16px 35px 22px;
+      padding: 20px 35px 26px;
+      margin: 0;
     }
   }
 }

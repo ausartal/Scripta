@@ -10,7 +10,6 @@ export class ServicesSection extends Section {
   render(): void {
     this.root.id = 'services';
     this.root.className = 'services';
-    this.root.style.top = '2234px';
     this.root.style.height = '1117px';
     this.root.innerHTML = /* html */ `
       <div class="services__intro">
@@ -19,7 +18,7 @@ export class ServicesSection extends Section {
           <p class="services__heading">Many ways to make it real.</p>
         </div>
         <div class="services__supporting">
-          <p>One collaborative studio. Eight ways to learn, create, and launch something meaningful.</p>
+          <p>One collaborative studio. Five core ways to learn, create, and launch something meaningful.</p>
         </div>
       </div>
 
@@ -40,7 +39,14 @@ export class ServicesSection extends Section {
           <p class="services__card-title">Web Development</p>
           <p class="services__card-desc">Landing pages, portfolios, organization websites, and web platforms built to work beautifully.</p>
         </div>
-        <p class="services__web-note">Base code, dll</p>
+        <div class="services__card-extra">
+          <div class="services__tags">
+            <span>LANDING PAGE</span>
+            <span>PORTFOLIO</span>
+            <span>WEB APPS</span>
+          </div>
+          <p class="services__price-pill">FROM IDR 1,000,000</p>
+        </div>
       </div>
 
       <div class="services__card services__card--game" data-card>
@@ -51,6 +57,14 @@ export class ServicesSection extends Section {
           <p class="services__card-title">Game Development</p>
           <p class="services__card-desc services__card-desc--light">Educational, interactive, and entertainment games that make discovery feel like play.</p>
         </div>
+        <div class="services__card-extra services__card-extra--game">
+          <div class="services__tags services__tags--light">
+            <span>PROTOTYPES</span>
+            <span>2D/3D GAMES</span>
+            <span>GAMEPLAY</span>
+          </div>
+          <p class="services__price-pill services__price-pill--game">FROM IDR 1,500,000</p>
+        </div>
       </div>
 
       <div class="services__card services__card--app" data-card>
@@ -60,13 +74,33 @@ export class ServicesSection extends Section {
         </div>
         <div class="services__app-panel"></div>
         <img class="services__app-img" src="${assets.services.appDev}" alt="" />
+        <div class="services__card-extra services__card-extra--app">
+          <div class="services__tags services__tags--dark">
+            <span>CUSTOM SOFTWARE</span>
+            <span>INTERNAL TOOLS</span>
+            <span>FULL-STACK</span>
+          </div>
+          <p class="services__price-pill services__price-pill--app">FROM IDR 8,000,000</p>
+        </div>
       </div>
 
       <div class="services__card services__card--educ" data-card>
         <div class="services__educ-panel"></div>
         <div class="services__details services__details--educ">
-          <p class="services__card-title">EDUCATION solution</p>
-          <p class="services__card-desc">Learning platforms, interactive materials, educational media that spark understanding, can also do a personal learning support and skill mentoring, with space to ask, practice, and grow.</p>
+          <div class="services__educ-badge">ACADEMIC &amp; CREATIVE SERVICES</div>
+          <p class="services__card-title services__card-title--educ">EDUCATION &amp; ILLUSTRATION</p>
+          <p class="services__card-desc services__card-desc--educ">1-on-1 tutoring, assignment mentoring, and learning media alongside custom digital art, character design, and visual assets tailored to inspire and deliver results.</p>
+          <div class="services__educ-footer">
+            <div class="services__tags services__tags--educ">
+              <span>ONLINE TUTORING</span>
+              <span>ASSIGNMENT HELP</span>
+              <span>DIGITAL ART</span>
+            </div>
+            <div class="services__educ-prices">
+              <span class="services__price-pill services__price-pill--educ">TUTORING: FROM IDR 50,000</span>
+              <span class="services__price-pill services__price-pill--educ">ART: FROM IDR 150,000</span>
+            </div>
+          </div>
         </div>
       </div>
       <img class="services__educ-img" src="${assets.services.education}" alt="" />
@@ -104,6 +138,16 @@ export class ServicesSection extends Section {
         stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: { trigger: this.root, start: 'top 70%', once: true },
+      });
+      gsap.to(this.query('.services__educ-img'), {
+        y: 45,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.root,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
+        },
       });
     });
   }

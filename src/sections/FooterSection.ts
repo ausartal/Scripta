@@ -1,6 +1,7 @@
 import { Section } from '@/core/Section';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { assets } from '@/utils/assets';
 import type { SectionId } from '@/types';
 
 const SERVICES = [
@@ -22,16 +23,19 @@ export class FooterSection extends Section {
   render(): void {
     this.root.id = 'footer';
     this.root.className = 'footer';
-    this.root.style.top = '8635px';
     this.root.style.height = '504px';
     const links = (items: string[], cls: string) =>
       items.map((t) => `<p class="footer__link ${cls}">${t}</p>`).join('');
     this.root.innerHTML = /* html */ `
       <div class="footer__directory">
         <div class="footer__summary">
+          <div class="footer__brand">
+            <img class="footer__logo" src="${assets.hero.logo}" alt="Scripta Logo" />
+            <span class="footer__wordmark">SCRIPTA</span>
+          </div>
           <p class="footer__statement">A collaborative studio at the intersection of education, creativity, and technology. Learn, create, launch—together.</p>
+          <p class="footer__contact">Contact &amp; social channels are provisional. Details to be confirmed before launch.</p>
         </div>
-        <p class="footer__contact">Contact &amp; social channels are provisional. Details to be confirmed before launch.</p>
         <div class="footer__groups">
           <div class="footer__group footer__group--services" data-col>
             <p class="footer__group-title">Services</p>

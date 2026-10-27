@@ -4,8 +4,8 @@
   top: 0;
   width: 1727px;
   height: 80px;
-  overflow: hidden;
-  z-index: 20;
+  overflow: visible;
+  z-index: 25;
 
   &__logo {
     position: absolute;
@@ -23,7 +23,7 @@
     font-weight: 700;
     font-size: 38px;
     letter-spacing: 1.9px;
-    color: var(--c-lime-wordmark);
+    color: var(--c-lime);
     white-space: nowrap;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
@@ -31,48 +31,79 @@
   }
   &__links {
     position: absolute;
-    left: 879px;
+    left: 840px;
     top: 32px;
     display: flex;
-    gap: 40px;
+    gap: 34px;
     align-items: center;
     white-space: nowrap;
   }
   &__link {
     font-family: var(--f-ui);
     font-weight: 700;
-    font-size: 13px;
-    color: #fff;
-    transition: opacity 0.25s ease;
+    font-size: 14px;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &.is-dark {
+      color: #111111;
+    }
+
     &:hover {
+      color: var(--c-lime);
+    }
+
+    &.is-dark:hover {
+      color: #111111;
       opacity: 0.7;
+    }
+
+    &.is-active {
+      color: var(--c-lime);
+    }
+
+    &.is-dark.is-active {
+      color: #111111;
     }
   }
   &__underline {
     position: absolute;
-    left: 879px;
-    top: 48px;
+    left: 840px;
+    top: 52px;
     width: 40px;
-    height: 2px;
-    background: #fff;
+    height: 3px;
+    background: var(--c-lime);
     border-radius: 200px;
   }
   &__cta {
     position: absolute;
-    left: 1520px;
-    top: 20px;
-    width: 150px;
-    height: 40px;
-    border: 3px solid var(--c-btn-border);
+    left: 1518px;
+    top: 18px;
+    width: 165px;
+    height: 44px;
+    background: var(--c-lime);
+    color: #111111;
+    border: 2px solid #111111;
+    box-shadow: 3px 3px 0px #111111;
     border-radius: 64px;
     font-family: var(--f-ui);
     font-weight: 700;
-    font-size: 15px;
-    color: var(--c-btn-border);
-    transition: background 0.3s ease, color 0.3s ease;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+
     &:hover {
-      background: var(--c-btn-border);
-      color: var(--c-lime);
+      background: #ffffff;
+      color: #111111;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px #111111;
     }
   }
 }

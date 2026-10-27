@@ -13,26 +13,43 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 280px;
+    width: 320px;
+  }
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  &__logo {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+  &__wordmark {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: 34px;
+    letter-spacing: 1.5px;
+    color: var(--c-lime-wordmark);
+    line-height: 1;
   }
   &__statement {
-    position: absolute;
-    top: 76px;
-    width: 280px;
+    position: static;
+    width: 300px;
     font-family: var(--f-ui);
     font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.65;
     color: var(--c-gray);
+    margin-bottom: 18px;
   }
   &__contact {
-    position: absolute;
-    left: 0;
-    top: 245px;
-    width: 280px;
+    position: static;
+    width: 300px;
     font-family: var(--f-ui);
     font-weight: 400;
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.55;
     color: var(--c-peach);
   }

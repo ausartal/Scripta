@@ -56,9 +56,48 @@ export class HeroSection extends Section {
       <div class="hero__bar hero__bar--orange"></div>
       <div class="hero__dot"></div>
 
-      <div class="hero__card hero__card--purple"></div>
-      <div class="hero__card hero__card--lime"></div>
-      <div class="hero__card hero__card--pink"></div>
+      <div class="hero__card hero__card--purple">
+        <div class="hero__card-body">
+          <p class="hero__card-title">Education</p>
+          <p class="hero__card-copy">Online tutoring, academic support, and learning materials that make hard things click.</p>
+          <div class="hero__card-extra">
+            <div class="hero__card-tags">
+              <span>TUTORING</span>
+              <span>ACADEMIC</span>
+              <span>MENTORING</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="hero__card hero__card--lime">
+        <div class="hero__card-body">
+          <p class="hero__card-title">Creativity</p>
+          <p class="hero__card-copy">Digital illustration, character art, and visual identities with real personality.</p>
+          <div class="hero__card-extra">
+            <div class="hero__card-tags">
+              <span>ILLUSTRATION</span>
+              <span>CHARACTER ART</span>
+              <span>BRANDING</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="hero__card hero__card--pink">
+        <div class="hero__card-body">
+          <p class="hero__card-title">Technology</p>
+          <p class="hero__card-copy">Websites, apps, and games built to work beautifully and move ideas forward.</p>
+          <div class="hero__card-extra">
+            <div class="hero__card-tags">
+              <span>WEBSITES</span>
+              <span>APPS</span>
+              <span>GAMES</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
 
       <div class="hero__character" data-hero="character">
         <img src="${assets.hero.character}" alt="Scripta character" />
@@ -78,8 +117,8 @@ export class HeroSection extends Section {
           <a class="nav__link" data-nav="link" data-target="services" href="#services">ABOUT US</a>
           <a class="nav__link" data-nav="link" data-target="audience" href="#audience">OUR SERVICES</a>
           <a class="nav__link" data-nav="link" data-target="process" href="#process">PORTFOLIO</a>
-          <a class="nav__link" data-nav="link" data-target="faq" href="#faq">PAGES</a>
-          <a class="nav__link" data-nav="link" data-target="pricing" href="#pricing">CONTACT US</a>
+          <a class="nav__link is-red" data-nav="link" data-target="faq" href="#faq">PAGES</a>
+          <a class="nav__link is-dark" data-nav="link" data-target="pricing" href="#pricing">CONTACT US</a>
         </div>
         <div class="nav__underline" data-nav="underline"></div>
         <button class="nav__cta" type="button">Start a Project</button>
@@ -123,13 +162,19 @@ export class HeroSection extends Section {
         stagger: 0.08,
         ease: 'power3.out',
       });
-      gsap.from(this.query('[data-hero="character"]'), {
-        y: 120,
-        opacity: 0,
-        duration: 1.2,
-        delay: 0.2,
-        ease: 'power3.out',
-      });
+      const charImg = this.query('[data-hero="character"] img');
+      gsap.fromTo(
+        charImg,
+        { y: 120, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.2,
+          ease: 'power3.out',
+          clearProps: 'transform,opacity',
+        },
+      );
       const bar = this.query('[data-hero="bar"]');
       gsap.from(bar, {
         scaleX: 0,
@@ -138,15 +183,15 @@ export class HeroSection extends Section {
         ease: 'power2.out',
       });
 
-      // A6 character parallax
+      // A6 character parallax - subtle smooth parallax ("gerak dikit")
       gsap.to(this.query('[data-hero="character"]'), {
-        yPercent: -12,
+        y: 60,
         ease: 'none',
         scrollTrigger: {
           trigger: this.root,
           start: 'top top',
           end: 'bottom top',
-          scrub: true,
+          scrub: 1.2,
         },
       });
 

@@ -89,7 +89,6 @@ export class AudienceSection extends Section {
   render(): void {
     this.root.id = 'audience';
     this.root.className = 'audience';
-    this.root.style.top = '3351px';
     this.root.style.height = '1229px';
     const cards = CARDS.map(
       (c) => /* html */ `

@@ -10,8 +10,7 @@ export class ProcessSection extends Section {
   render(): void {
     this.root.id = 'process';
     this.root.className = 'process';
-    this.root.style.top = '4580px';
-    this.root.style.height = '1228px';
+    this.root.style.height = '1230px';
     this.root.style.background = '#252525';
     this.root.innerHTML = /* html */ `
       <img class="process__shape process__shape--1" src="${assets.process.shape1}" alt="" />
@@ -20,7 +19,6 @@ export class ProcessSection extends Section {
       <img class="process__shape process__shape--4" src="${assets.process.shape4}" alt="" />
       <img class="process__shape process__shape--5" src="${assets.process.shape5}" alt="" />
       <img class="process__character" src="${assets.process.character}" alt="" />
-      <img class="process__flag" src="${assets.process.flag}" alt="" />
 
       <p class="process__label">04 / How it works</p>
       <p class="process__heading" data-process="title">A conversation. Then a <b>creation</b>.</p>
@@ -30,7 +28,7 @@ export class ProcessSection extends Section {
         <div class="process__card-bg"></div>
         <p class="process__step-title">Tell Us Your Idea</p>
         <p class="process__step-p1">A rough sketch, a question, a "what if." We listen to what you want to make and why it matters.</p>
-        <p class="process__step-p2">Every great project starts with a conversation. Share your thoughts, references, challenges, or even an idea that hasn't fully taken shape. </p>
+        <p class="process__step-p2">Every great project starts with a conversation. Share your thoughts, references, challenges, or even an idea that hasn't fully taken shape. You don't need all the answers yet—we'll help explore possibilities.</p>
       </div>
       <div class="process__tile process__tile--1" data-process="tile">
         <div class="process__tile-bg"></div>
@@ -44,7 +42,7 @@ export class ProcessSection extends Section {
         <div class="process__step-body">
           <p>We agree on the scope, timeline, and next steps. Clear expectations, with room for your input.</p>
           <p>&nbsp;</p>
-          <p>Together, we turn your ideas into a practical plan. We define what needs to be done, discuss the details, and establish a shared vision before moving forward. </p>
+          <p>Together, we turn your ideas into a practical plan. We define what needs to be done, discuss the details, and establish a shared vision before moving forward.</p>
         </div>
       </div>
       <div class="process__tile process__tile--2" data-process="tile">
@@ -57,7 +55,7 @@ export class ProcessSection extends Section {
         <div class="process__card-bg"></div>
         <p class="process__step-title">We Create It</p>
         <p class="process__step-p1">We design, build, and refine with you. Regular check-ins keep the work—and the conversation—moving.</p>
-        <p class="process__step-p2">This is where the plan becomes something real. We bring your ideas to life, share progress along the way, and refine the details through your feedback. From the first draft to the final deliver.</p>
+        <p class="process__step-p2">This is where the plan becomes something real. We bring your ideas to life, share progress along the way, and refine the details through your feedback from the first draft to final delivery.</p>
       </div>
       <div class="process__tile process__tile--3" data-process="tile">
         <div class="process__tile-bg"></div>
@@ -114,6 +112,18 @@ export class ProcessSection extends Section {
           trigger: this.root,
           start: 'top 78%',
           once: true,
+        },
+      });
+
+      // Character parallax on scroll ("gerak dikit")
+      gsap.to(this.query('.process__character'), {
+        y: 50,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: this.root,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2,
         },
       });
     });

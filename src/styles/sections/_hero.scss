@@ -9,7 +9,7 @@
   &__marquee {
     position: absolute;
     left: -120px;
-    top: 770px;
+    top: 771px;
     width: 1980px;
     height: 380px;
     display: flex;
@@ -19,7 +19,7 @@
   &__marquee-clip {
     transform: rotate(6deg);
     width: 1980px;
-    height: 172px;
+    height: 177px;
     overflow: hidden;
     position: relative;
     flex: none;
@@ -29,6 +29,8 @@
   }
   &__marquee-track {
     display: flex;
+    align-items: center;
+    height: 100%;
     white-space: nowrap;
     font-family: var(--f-display);
     font-weight: 700;
@@ -129,6 +131,7 @@
     font-size: 100px;
     letter-spacing: 10px;
     color: transparent;
+    -webkit-text-stroke: 5px #fff;
   }
   &__t {
     left: 871px;
@@ -136,6 +139,7 @@
     font-size: 200px;
     letter-spacing: 40px;
     color: transparent;
+    -webkit-text-stroke: 6px var(--c-lime);
   }
   &__ideas {
     left: 151px;
@@ -300,7 +304,7 @@
     height: 600px;
     &--purple {
       left: 175px;
-      background: var(--c-purple);
+      background: #9b6cf0;
     }
     &--lime {
       left: 692px;
@@ -309,6 +313,72 @@
     &--pink {
       left: 1208px;
       background: var(--c-pink);
+    }
+  }
+  &__card-body {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: 336px;
+  }
+  &__card-title {
+    font-family: var(--f-heading);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.08;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+    color: #1a1a1a;
+  }
+  &__card-copy {
+    font-family: var(--f-ui);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+    color: rgba(0, 0, 0, 0.72);
+  }
+  &__card-extra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  &__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+
+    span {
+      font-family: var(--f-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.08);
+      color: #1a1a1a;
+      border: 1px solid rgba(0, 0, 0, 0.18);
+    }
+  }
+  &__card-price {
+    font-family: var(--f-ui);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 4px;
+    background: var(--c-lime);
+    color: #111;
+    white-space: nowrap;
+    margin: 0;
+    min-width: 145px;
+    text-align: center;
+
+    &--dark {
+      background: #1a1a1a;
+      color: #fff;
     }
   }
   &__card-img {
@@ -340,7 +410,7 @@
   &__character {
     position: absolute;
     left: 650px;
-    top: 20px;
+    top: 0px;
     width: 1035.357px;
     height: 1673.021px;
     display: flex;

@@ -11,7 +11,7 @@ export abstract class Section extends Component {
   constructor(parent: HTMLElement) {
     super(document.createElement('section'));
     parent.appendChild(this.root);
-    this.root.style.cssText = 'position:absolute;left:0;width:1728px;';
+    this.root.style.cssText = 'position:relative;left:0;width:1728px;display:block;';
   }
 
   abstract render(): void;

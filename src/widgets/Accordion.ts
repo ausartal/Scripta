@@ -1,9 +1,11 @@
 import { Component } from '@/core/Component';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
  * FAQ accordion. Multi-open allowed. Header click animates the panel
  * height and rotates the "+" glyph into an "x".
+ * Dynamically refreshes ScrollTrigger & layout when opened or closed.
  */
 export class Accordion extends Component {
   init(): void {
@@ -23,7 +25,7 @@ export class Accordion extends Component {
     if (icon) {
       gsap.to(icon, {
         rotation: open ? 0 : 45,
-        duration: 0.4,
+        duration: 0.35,
         ease: 'power2.inOut',
       });
     }
@@ -38,7 +40,14 @@ export class Accordion extends Component {
     gsap.fromTo(
       panel,
       { height: 0, opacity: 0 },
-      { height: 'auto', opacity: 1, duration: 0.4, ease: 'power2.inOut' },
+      {
+        height: 'auto',
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+        onUpdate: () => ScrollTrigger.refresh(),
+        onComplete: () => ScrollTrigger.refresh(),
+      },
     );
   }
 
@@ -48,7 +57,14 @@ export class Accordion extends Component {
     if (!header || !panel) return;
     header.classList.remove('is-open');
     panel.classList.remove('is-open');
-    gsap.to(panel, { height: 0, opacity: 0, duration: 0.4, ease: 'power2.inOut' });
+    gsap.to(panel, {
+      height: 0,
+      opacity: 0,
+      duration: 0.35,
+      ease: 'power2.inOut',
+      onUpdate: () => ScrollTrigger.refresh(),
+      onComplete: () => ScrollTrigger.refresh(),
+    });
   }
 
   destroy(): void {
