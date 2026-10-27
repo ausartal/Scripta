@@ -11,6 +11,7 @@ import { FaqSection } from '@/sections/FaqSection';
 import { PricingSection } from '@/sections/PricingSection';
 import { FooterSection } from '@/sections/FooterSection';
 import { Navbar } from '@/widgets/Navbar';
+import { ContactModal } from '@/widgets/ContactModal';
 import { StageScaler } from '@/utils/scale';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -20,6 +21,7 @@ export class App {
   private readonly scaler = new StageScaler();
   private sections: Section[] = [];
   private navbar?: Navbar;
+  private contact?: ContactModal;
 
   mount(parent: HTMLElement): void {
     const hero = new HeroSection(parent);
@@ -48,6 +50,12 @@ export class App {
 
     for (const s of this.sections) s.init();
 
+    const contactEl = document.getElementById('contact-modal');
+    if (contactEl) {
+      this.contact = new ContactModal(contactEl);
+      this.contact.init();
+    }
+
     this.scaler.start();
     window.addEventListener('stage:rescale', () => ScrollTrigger.refresh());
 
@@ -61,6 +69,7 @@ export class App {
     this.sections.forEach((s) => s.destroy());
     this.sections = [];
     this.navbar?.destroy();
+    this.contact?.destroy();
     this.anim.killAll();
     this.scaler.destroy();
   }

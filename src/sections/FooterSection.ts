@@ -34,7 +34,10 @@ export class FooterSection extends Section {
             <span class="footer__wordmark">SCRIPTA</span>
           </div>
           <p class="footer__statement">A collaborative studio at the intersection of education, creativity, and technology. Learn, create, launch—together.</p>
-          <p class="footer__contact">Contact &amp; social channels are provisional. Details to be confirmed before launch.</p>
+          <p class="footer__contact">
+            <button type="button" class="footer__contact-btn" data-contact="open">works.scripta@gmail.com</button>
+            &nbsp;·&nbsp;@hello.scripta
+          </p>
         </div>
         <div class="footer__groups">
           <div class="footer__group footer__group--services" data-col>

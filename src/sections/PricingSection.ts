@@ -176,7 +176,7 @@ export class PricingSection extends Section {
           <p class="pricing__cta-text">A conversation.<br />Then a <em>creation</em>.</p>
           <p class="pricing__cta-sub">Got an idea, challenge, or brief? Tell us what you want to make and why it matters.</p>
         </div>
-        <a class="pricing__btn-action" href="#footer" data-nav="link" data-target="footer">
+        <a class="pricing__btn-action" href="#contact" data-contact="open">
           <div class="pricing__btn-shadow"></div>
           <div class="pricing__btn-mid"></div>
           <div class="pricing__btn-front">

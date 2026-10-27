@@ -119,10 +119,10 @@ export class HeroSection extends Section {
           <a class="nav__link" data-nav="link" data-target="audience" href="#audience">OUR SERVICES</a>
           <a class="nav__link" data-nav="link" data-target="process" href="#process">PORTFOLIO</a>
           <a class="nav__link is-dark" data-nav="link" data-target="faq" href="#faq"><span class="nav__link-light">PA</span>GES</a>
-          <a class="nav__link is-dark" data-nav="link" data-target="pricing" href="#pricing">CONTACT US</a>
+          <a class="nav__link is-dark" data-contact="open" href="#contact">CONTACT US</a>
         </div>
         <div class="nav__underline" data-nav="underline"></div>
-        <button class="nav__cta" type="button">Start a Project</button>
+        <button class="nav__cta" type="button" data-contact="open">Start a Project</button>
       </nav>
 
       <div class="hero__bar hero__bar--white" data-hero="rail"></div>
@@ -138,7 +138,7 @@ export class HeroSection extends Section {
       <div class="social" data-widget="social">
         <a class="social__icon" data-social="icon" href="#" aria-label="Figma"><img src="${assets.icons.figma}" alt="Figma" /></a>
         <a class="social__icon social__icon--github" data-social="icon" href="#" aria-label="Github"><img src="${assets.hero.iconGithub}" alt="GitHub" /></a>
-        <a class="social__icon social__icon--instagram" data-social="icon" href="#" aria-label="Instagram"><img src="${assets.icons.instagram}" alt="Instagram" /></a>
+        <a class="social__icon social__icon--instagram" data-social="icon" href="https://instagram.com/hello.scripta" target="_blank" rel="noopener noreferrer" aria-label="Instagram @hello.scripta"><img src="${assets.icons.instagram}" alt="Instagram @hello.scripta" /></a>
         <a class="social__icon social__icon--twitch" data-social="icon" href="#" aria-label="Twitch"><img src="${assets.icons.twitch}" alt="Twitch" /></a>
         <a class="social__icon social__icon--twitter" data-social="icon" href="#" aria-label="Twitter"><img src="${assets.icons.twitter}" alt="Twitter" /></a>
       </div>
