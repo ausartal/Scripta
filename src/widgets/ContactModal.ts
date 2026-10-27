@@ -114,7 +114,7 @@ export class ContactModal extends Component {
     const done = () => {
       this.root.style.display = 'none';
       document.body.style.overflow = '';
-      gsap.set([backdrop, card], { clearProps: 'all' });
+      gsap.set([backdrop, card], { clearProps: 'opacity,transform' });
       this.lastFocus?.focus?.();
     };
 
