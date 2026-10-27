@@ -5,3 +5,6 @@ vite.log
 .mimocode/
 *.local
 .DS_Store
+deploy-nginx*.conf
+check-*.py
+

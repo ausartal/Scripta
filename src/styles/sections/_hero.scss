@@ -29,8 +29,9 @@
   }
   &__marquee-track {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
+    padding-top: 45px; 
     white-space: nowrap;
     font-family: var(--f-display);
     font-weight: 700;
@@ -56,24 +57,24 @@
     position: absolute;
     pointer-events: none;
     &--l1 {
-      left: -83.03px;
-      top: -92.37px;
-      width: 865.045px;
-      height: 887.534px;
+      left: -115px;
+      top: -50px;
+      width: 916px;
+      height: 900px;
       transform: rotate(6deg);
     }
     &--l2 {
-      left: -84.28px;
-      top: -66.48px;
-      width: 631.523px;
-      height: 863.455px;
+      left: -115px;
+      top: -40px;
+      width: 668px;
+      height: 900px;
       transform: rotate(6deg);
     }
     &--l3 {
-      left: -84.46px;
-      top: -32.91px;
-      width: 295.873px;
-      height: 829.897px;
+      left: -74px;
+      top: -20px;
+      width: 313px;
+      height: 845px;
       transform: rotate(6deg);
     }
     &--r1 {

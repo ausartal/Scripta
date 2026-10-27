@@ -19,6 +19,16 @@ export class HeroSection extends Section {
     this.root.innerHTML = /* html */ `
       <div class="hero__bg"></div>
 
+      <img class="hero__deco hero__deco--l1" src="${assets.hero.decoLeft1}" alt="" />
+      <img class="hero__deco hero__deco--l2" src="${assets.hero.decoLeft2}" alt="" />
+      <img class="hero__deco hero__deco--l3" src="${assets.hero.decoLeft3}" alt="" />
+
+      <p class="hero__impact hero__line" data-hero="line"><span class="hero__im">IM</span><span class="hero__pact">PACT</span></p>
+      <p class="hero__into hero__line" data-hero="line">INTO</p>
+
+      <img class="hero__deco hero__deco--r1" src="${assets.hero.decoRight1}" alt="" />
+      <img class="hero__deco hero__deco--r2" src="${assets.hero.decoRight2}" alt="" />
+
       <div class="hero__marquee">
         <div class="hero__marquee-clip">
           <div class="hero__marquee-track" data-marquee="track">
@@ -29,16 +39,6 @@ export class HeroSection extends Section {
           </div>
         </div>
       </div>
-
-      <img class="hero__deco hero__deco--l1" src="${assets.hero.decoLeft1}" alt="" />
-      <img class="hero__deco hero__deco--l2" src="${assets.hero.decoLeft2}" alt="" />
-      <img class="hero__deco hero__deco--l3" src="${assets.hero.decoLeft3}" alt="" />
-
-      <p class="hero__impact hero__line" data-hero="line"><span class="hero__im">IM</span><span class="hero__pact">PACT</span></p>
-      <p class="hero__into hero__line" data-hero="line">INTO</p>
-
-      <img class="hero__deco hero__deco--r1" src="${assets.hero.decoRight1}" alt="" />
-      <img class="hero__deco hero__deco--r2" src="${assets.hero.decoRight2}" alt="" />
 
       <img class="hero__dark-shape" src="${assets.hero.darkShape}" alt="" />
 
@@ -117,7 +117,7 @@ export class HeroSection extends Section {
           <a class="nav__link" data-nav="link" data-target="services" href="#services">ABOUT US</a>
           <a class="nav__link" data-nav="link" data-target="audience" href="#audience">OUR SERVICES</a>
           <a class="nav__link" data-nav="link" data-target="process" href="#process">PORTFOLIO</a>
-          <a class="nav__link is-red" data-nav="link" data-target="faq" href="#faq">PAGES</a>
+          <a class="nav__link is-dark" data-nav="link" data-target="faq" href="#faq"><span class="nav__link-light">PA</span>GES</a>
           <a class="nav__link is-dark" data-nav="link" data-target="pricing" href="#pricing">CONTACT US</a>
         </div>
         <div class="nav__underline" data-nav="underline"></div>
