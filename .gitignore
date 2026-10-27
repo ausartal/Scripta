@@ -8,3 +8,5 @@ vite.log
 deploy-nginx*.conf
 check-*.py
 
+*.py
+
